@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2326FD7F2316F405005B5089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326FD7E2316F405005B5089 /* AppDelegate.swift */; };
-		2326FD812316F405005B5089 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326FD802316F405005B5089 /* ViewController.swift */; };
+		2326FD812316F405005B5089 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326FD802316F405005B5089 /* ExampleViewController.swift */; };
 		2326FD842316F405005B5089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2326FD822316F405005B5089 /* Main.storyboard */; };
 		2326FD862316F406005B5089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2326FD852316F406005B5089 /* Assets.xcassets */; };
 		2326FD892316F406005B5089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2326FD872316F406005B5089 /* LaunchScreen.storyboard */; };
+		2326FD982316F746005B5089 /* MLBusinessLoyaltyRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326FD972316F746005B5089 /* MLBusinessLoyaltyRingView.swift */; };
+		23E15A0E2317101900DEB693 /* MLBusinessLoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A0D2317101900DEB693 /* MLBusinessLoyaltyRingData.swift */; };
+		23E15A102317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A0F2317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2326FD7B2316F405005B5089 /* MLBusinessComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLBusinessComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2326FD7E2316F405005B5089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2326FD802316F405005B5089 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2326FD802316F405005B5089 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		2326FD832316F405005B5089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2326FD852316F406005B5089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2326FD882316F406005B5089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2326FD8A2316F406005B5089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2326FD972316F746005B5089 /* MLBusinessLoyaltyRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingView.swift; sourceTree = "<group>"; };
+		23E15A0D2317101900DEB693 /* MLBusinessLoyaltyRingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingData.swift; sourceTree = "<group>"; };
+		23E15A0F2317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleViewController+LoyaltyRingData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		2326FD7D2316F405005B5089 /* MLBusinessComponents */ = {
 			isa = PBXGroup;
 			children = (
+				2326FD932316F566005B5089 /* Source */,
 				2326FD7E2316F405005B5089 /* AppDelegate.swift */,
-				2326FD802316F405005B5089 /* ViewController.swift */,
+				2326FD802316F405005B5089 /* ExampleViewController.swift */,
+				23E15A0F2317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift */,
 				2326FD822316F405005B5089 /* Main.storyboard */,
 				2326FD852316F406005B5089 /* Assets.xcassets */,
 				2326FD872316F406005B5089 /* LaunchScreen.storyboard */,
 				2326FD8A2316F406005B5089 /* Info.plist */,
 			);
 			path = MLBusinessComponents;
+			sourceTree = "<group>";
+		};
+		2326FD932316F566005B5089 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2326FD942316F566005B5089 /* Components */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2326FD942316F566005B5089 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2326FD952316F566005B5089 /* Loyalty */,
+				2326FD962316F566005B5089 /* Discount */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2326FD952316F566005B5089 /* Loyalty */ = {
+			isa = PBXGroup;
+			children = (
+				2326FD972316F746005B5089 /* MLBusinessLoyaltyRingView.swift */,
+				23E15A0D2317101900DEB693 /* MLBusinessLoyaltyRingData.swift */,
+			);
+			path = Loyalty;
+			sourceTree = "<group>";
+		};
+		2326FD962316F566005B5089 /* Discount */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discount;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2326FD812316F405005B5089 /* ViewController.swift in Sources */,
+				2326FD812316F405005B5089 /* ExampleViewController.swift in Sources */,
+				2326FD982316F746005B5089 /* MLBusinessLoyaltyRingView.swift in Sources */,
+				23E15A102317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift in Sources */,
 				2326FD7F2316F405005B5089 /* AppDelegate.swift in Sources */,
+				23E15A0E2317101900DEB693 /* MLBusinessLoyaltyRingData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
