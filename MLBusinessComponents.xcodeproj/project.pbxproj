@@ -15,6 +15,10 @@
 		2326FD982316F746005B5089 /* MLBusinessLoyaltyRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326FD972316F746005B5089 /* MLBusinessLoyaltyRingView.swift */; };
 		23E15A0E2317101900DEB693 /* MLBusinessLoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A0D2317101900DEB693 /* MLBusinessLoyaltyRingData.swift */; };
 		23E15A102317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A0F2317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift */; };
+		23E15A122318047400DEB693 /* MLBusinessDiscountBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A112318047400DEB693 /* MLBusinessDiscountBoxView.swift */; };
+		23E15A142318048C00DEB693 /* MLBusinessDiscountBoxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A132318048C00DEB693 /* MLBusinessDiscountBoxData.swift */; };
+		23E15A192318068100DEB693 /* String+Hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A182318068000DEB693 /* String+Hexa.swift */; };
+		23E15A1B231808C400DEB693 /* MLBusinessDiscountSingleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A1A231808C400DEB693 /* MLBusinessDiscountSingleItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		2326FD972316F746005B5089 /* MLBusinessLoyaltyRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingView.swift; sourceTree = "<group>"; };
 		23E15A0D2317101900DEB693 /* MLBusinessLoyaltyRingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingData.swift; sourceTree = "<group>"; };
 		23E15A0F2317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleViewController+LoyaltyRingData.swift"; sourceTree = "<group>"; };
+		23E15A112318047400DEB693 /* MLBusinessDiscountBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountBoxView.swift; sourceTree = "<group>"; };
+		23E15A132318048C00DEB693 /* MLBusinessDiscountBoxData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountBoxData.swift; sourceTree = "<group>"; };
+		23E15A182318068000DEB693 /* String+Hexa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hexa.swift"; sourceTree = "<group>"; };
+		23E15A1A231808C400DEB693 /* MLBusinessDiscountSingleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 		2326FD932316F566005B5089 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				23E15A172318068000DEB693 /* Extensions */,
 				2326FD942316F566005B5089 /* Components */,
 			);
 			path = Source;
@@ -101,8 +110,19 @@
 		2326FD962316F566005B5089 /* Discount */ = {
 			isa = PBXGroup;
 			children = (
+				23E15A112318047400DEB693 /* MLBusinessDiscountBoxView.swift */,
+				23E15A132318048C00DEB693 /* MLBusinessDiscountBoxData.swift */,
+				23E15A1A231808C400DEB693 /* MLBusinessDiscountSingleItem.swift */,
 			);
 			path = Discount;
+			sourceTree = "<group>";
+		};
+		23E15A172318068000DEB693 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23E15A182318068000DEB693 /* String+Hexa.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +200,11 @@
 				2326FD982316F746005B5089 /* MLBusinessLoyaltyRingView.swift in Sources */,
 				23E15A102317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift in Sources */,
 				2326FD7F2316F405005B5089 /* AppDelegate.swift in Sources */,
+				23E15A192318068100DEB693 /* String+Hexa.swift in Sources */,
+				23E15A122318047400DEB693 /* MLBusinessDiscountBoxView.swift in Sources */,
 				23E15A0E2317101900DEB693 /* MLBusinessLoyaltyRingData.swift in Sources */,
+				23E15A1B231808C400DEB693 /* MLBusinessDiscountSingleItem.swift in Sources */,
+				23E15A142318048C00DEB693 /* MLBusinessDiscountBoxData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

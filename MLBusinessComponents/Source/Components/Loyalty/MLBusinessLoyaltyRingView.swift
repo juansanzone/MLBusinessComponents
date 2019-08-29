@@ -8,8 +8,7 @@
 
 import UIKit
 
-// todo: ver tema open y objc
-class MLBusinessLoyaltyRingView: UIView {
+@objc open class MLBusinessLoyaltyRingView: UIView {
     let viewData: MLBusinessLoyaltyRingData
 
     init(_ ringViewData: MLBusinessLoyaltyRingData) {
@@ -18,10 +17,12 @@ class MLBusinessLoyaltyRingView: UIView {
         render()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+extension MLBusinessLoyaltyRingView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
 
@@ -40,7 +41,7 @@ class MLBusinessLoyaltyRingView: UIView {
         self.addSubview(button)
 
         let ring = UIView(frame: .zero)
-        ring.backgroundColor = viewData.getRingColor()
+        ring.backgroundColor = viewData.getRingHexaColor().hexaToUIColor()
         ring.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(ring)
 
@@ -59,6 +60,6 @@ class MLBusinessLoyaltyRingView: UIView {
             button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
 
             self.heightAnchor.constraint(equalToConstant: 82)
-        ])
+            ])
     }
 }

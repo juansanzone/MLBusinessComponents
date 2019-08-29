@@ -13,11 +13,11 @@ extension ExampleViewController: MLBusinessLoyaltyRingData {
         return 4
     }
 
-    func getRingColor() -> UIColor {
-        return .blue
+    func getRingHexaColor() -> String {
+        return "#43bc80"
     }
 
-    func getRingPercentage() -> CGFloat {
+    func getRingPercentage() -> Float {
         return 0.45
     }
 
