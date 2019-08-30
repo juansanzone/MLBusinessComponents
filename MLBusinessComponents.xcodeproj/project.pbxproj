@@ -20,13 +20,6 @@
 		23E15A192318068100DEB693 /* String+Hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A182318068000DEB693 /* String+Hexa.swift */; };
 		23E15A1B231808C400DEB693 /* MLBusinessDiscountSingleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A1A231808C400DEB693 /* MLBusinessDiscountSingleItem.swift */; };
 		23E15A282318B1E100DEB693 /* UICircularRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A202318B1E100DEB693 /* UICircularRing.swift */; };
-		23E15A292318B1E100DEB693 /* UICircularRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A212318B1E100DEB693 /* UICircularRingLayer.swift */; };
-		23E15A2A2318B1E100DEB693 /* UICircularRingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A222318B1E100DEB693 /* UICircularRingStyle.swift */; };
-		23E15A2B2318B1E100DEB693 /* UICircularTimerRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A232318B1E100DEB693 /* UICircularTimerRing.swift */; };
-		23E15A2C2318B1E100DEB693 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A242318B1E100DEB693 /* Extensions.swift */; };
-		23E15A2D2318B1E100DEB693 /* UICircularProgressRingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A252318B1E100DEB693 /* UICircularProgressRingDelegate.swift */; };
-		23E15A2E2318B1E100DEB693 /* UICircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A262318B1E100DEB693 /* UICircularProgressRing.swift */; };
-		23E15A2F2318B1E100DEB693 /* UICircularRingValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A272318B1E100DEB693 /* UICircularRingValueFormatter.swift */; };
 		23E15A312318BE0400DEB693 /* RingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15A302318BE0400DEB693 /* RingFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,13 +39,6 @@
 		23E15A182318068000DEB693 /* String+Hexa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hexa.swift"; sourceTree = "<group>"; };
 		23E15A1A231808C400DEB693 /* MLBusinessDiscountSingleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItem.swift; sourceTree = "<group>"; };
 		23E15A202318B1E100DEB693 /* UICircularRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRing.swift; sourceTree = "<group>"; };
-		23E15A212318B1E100DEB693 /* UICircularRingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingLayer.swift; sourceTree = "<group>"; };
-		23E15A222318B1E100DEB693 /* UICircularRingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingStyle.swift; sourceTree = "<group>"; };
-		23E15A232318B1E100DEB693 /* UICircularTimerRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularTimerRing.swift; sourceTree = "<group>"; };
-		23E15A242318B1E100DEB693 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		23E15A252318B1E100DEB693 /* UICircularProgressRingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressRingDelegate.swift; sourceTree = "<group>"; };
-		23E15A262318B1E100DEB693 /* UICircularProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressRing.swift; sourceTree = "<group>"; };
-		23E15A272318B1E100DEB693 /* UICircularRingValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingValueFormatter.swift; sourceTree = "<group>"; };
 		23E15A302318BE0400DEB693 /* RingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,13 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				23E15A202318B1E100DEB693 /* UICircularRing.swift */,
-				23E15A212318B1E100DEB693 /* UICircularRingLayer.swift */,
-				23E15A222318B1E100DEB693 /* UICircularRingStyle.swift */,
-				23E15A232318B1E100DEB693 /* UICircularTimerRing.swift */,
-				23E15A242318B1E100DEB693 /* Extensions.swift */,
-				23E15A252318B1E100DEB693 /* UICircularProgressRingDelegate.swift */,
-				23E15A262318B1E100DEB693 /* UICircularProgressRing.swift */,
-				23E15A272318B1E100DEB693 /* UICircularRingValueFormatter.swift */,
 			);
 			path = UICircularProgressRing;
 			sourceTree = "<group>";
@@ -240,23 +219,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2326FD812316F405005B5089 /* ExampleViewController.swift in Sources */,
-				23E15A2F2318B1E100DEB693 /* UICircularRingValueFormatter.swift in Sources */,
 				2326FD982316F746005B5089 /* MLBusinessLoyaltyRingView.swift in Sources */,
 				23E15A102317114A00DEB693 /* ExampleViewController+LoyaltyRingData.swift in Sources */,
 				2326FD7F2316F405005B5089 /* AppDelegate.swift in Sources */,
-				23E15A2D2318B1E100DEB693 /* UICircularProgressRingDelegate.swift in Sources */,
 				23E15A312318BE0400DEB693 /* RingFactory.swift in Sources */,
 				23E15A192318068100DEB693 /* String+Hexa.swift in Sources */,
-				23E15A292318B1E100DEB693 /* UICircularRingLayer.swift in Sources */,
 				23E15A122318047400DEB693 /* MLBusinessDiscountBoxView.swift in Sources */,
 				23E15A0E2317101900DEB693 /* MLBusinessLoyaltyRingData.swift in Sources */,
-				23E15A2A2318B1E100DEB693 /* UICircularRingStyle.swift in Sources */,
 				23E15A1B231808C400DEB693 /* MLBusinessDiscountSingleItem.swift in Sources */,
 				23E15A282318B1E100DEB693 /* UICircularRing.swift in Sources */,
-				23E15A2B2318B1E100DEB693 /* UICircularTimerRing.swift in Sources */,
 				23E15A142318048C00DEB693 /* MLBusinessDiscountBoxData.swift in Sources */,
-				23E15A2C2318B1E100DEB693 /* Extensions.swift in Sources */,
-				23E15A2E2318B1E100DEB693 /* UICircularProgressRing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
