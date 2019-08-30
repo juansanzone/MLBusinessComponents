@@ -16,9 +16,7 @@ class ExampleViewController: UIViewController {
 
     func setupRingView() {
         let ringView = MLBusinessLoyaltyRingView(self)
-
         view.addSubview(ringView)
-
         ringView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         ringView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         ringView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true

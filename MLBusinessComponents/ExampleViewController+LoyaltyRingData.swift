@@ -14,11 +14,11 @@ extension ExampleViewController: MLBusinessLoyaltyRingData {
     }
 
     func getRingHexaColor() -> String {
-        return "#43bc80"
+        return "#17aad6"
     }
 
     func getRingPercentage() -> Float {
-        return 0.45
+        return 0.65
     }
 
     func getTitle() -> String {
