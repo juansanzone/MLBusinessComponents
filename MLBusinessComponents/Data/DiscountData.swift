@@ -9,13 +9,14 @@
 import UIKit
 
 class DiscountData: NSObject, MLBusinessDiscountBoxData {
-
     func getTitle() -> String {
         return "200 descuentos"
     }
+
     func getSubtitle() -> String {
         return "por ser nivel 3"
     }
+
     func getItems() -> [MLBusinessDiscountSingleItem] {
         let item1 = MLBusinessDiscountSingleItem(title: "Hasta", subtitle: "$ 200", iconImageUrl: "Starbucks-Logo")
         let item2 = MLBusinessDiscountSingleItem(title: "Hasta", subtitle: "$ 200", iconImageUrl: "Starbucks-Logo")

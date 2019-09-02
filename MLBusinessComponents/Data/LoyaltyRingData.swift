@@ -9,22 +9,26 @@
 import UIKit
 
 class LoyaltyRingData: NSObject, MLBusinessLoyaltyRingData {
-
     func getRingNumber() -> Int {
         return 4
     }
+
     func getRingHexaColor() -> String {
-        return "#43bc80"
+        return "#17aad6"
     }
+
     func getRingPercentage() -> Float {
-        return 0.45
+        return 0.20
     }
+
     func getTitle() -> String {
         return "Ganaste unos puntos hola a todos mis amigos como estan"
     }
+
     func getButtonTitle() -> String {
         return "Ir a los puntos"
     }
+
     func getButtonDeepLink() -> String {
         return "mercadopago://home"
     }

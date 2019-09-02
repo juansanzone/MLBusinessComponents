@@ -41,9 +41,7 @@ extension MLBusinessLoyaltyRingView {
         button.setTitleColor(UIColor.blue, for: .normal)
         self.addSubview(button)
 
-        let ring = UIView(frame: .zero)
-        ring.backgroundColor = viewData.getRingHexaColor().hexaToUIColor()
-        ring.translatesAutoresizingMaskIntoConstraints = false
+        let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage())
         self.addSubview(ring)
 
         NSLayoutConstraint.activate([
