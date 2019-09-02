@@ -9,13 +9,7 @@
 import Foundation
 
 @objc public protocol MLBusinessDiscountBoxData: NSObjectProtocol {
-    func getTitle() -> String
-    func getSubtitle() -> String
-
+    @objc optional func getTitle() -> String
+    @objc optional func getSubtitle() -> String
     func getItems() -> [MLBusinessDiscountSingleItem]
-
-    func getButtonTitle() -> String
-    func getButtonDeepLink() -> String
-
-    func shouldShowDownloadAppBadge() -> Bool
 }

@@ -25,6 +25,7 @@ import UIKit
 extension MLBusinessLoyaltyRingView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = UIColor.white //REMOVE
 
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 2 //todo revisar
