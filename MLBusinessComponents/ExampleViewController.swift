@@ -9,19 +9,29 @@
 import UIKit
 
 class ExampleViewController: UIViewController {
+    private weak var ringView: MLBusinessLoyaltyRingView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateRing()
+    }
 }
 
+// MARK: Setups
 extension ExampleViewController {
     private func setupView() {
-        setupDiscountView(bottomOf: setupRingView())
+        let newRingView = setupRingView()
+        self.ringView = newRingView
+        setupDiscountView(bottomOf: newRingView)
     }
 
-    private func setupRingView() -> UIView {
-        let ringView = MLBusinessLoyaltyRingView(LoyaltyRingData())
+    private func setupRingView() -> MLBusinessLoyaltyRingView {
+        let ringView = MLBusinessLoyaltyRingView(LoyaltyRingData(), fillPercentProgress: false)
         view.addSubview(ringView)
         NSLayoutConstraint.activate([
             ringView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -39,5 +49,11 @@ extension ExampleViewController {
             discountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: 20)
         ])
+    }
+}
+
+extension ExampleViewController {
+    private func animateRing() {
+        ringView?.fillPercentProgressWithAnimation()
     }
 }

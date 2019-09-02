@@ -10,9 +10,12 @@ import UIKit
 
 @objc open class MLBusinessLoyaltyRingView: UIView {
     let viewData: MLBusinessLoyaltyRingData
+    private let fillPercentProgress: Bool
+    private weak var ringView: UICircularProgressRing?
 
-    init(_ ringViewData: MLBusinessLoyaltyRingData) {
+    init(_ ringViewData: MLBusinessLoyaltyRingData, fillPercentProgress: Bool = true) {
         self.viewData = ringViewData
+        self.fillPercentProgress = fillPercentProgress
         super.init(frame: .zero)
         render()
     }
@@ -20,8 +23,13 @@ import UIKit
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func fillPercentProgressWithAnimation(_ duration: TimeInterval = 1.0) {
+        ringView?.startProgress(to: CGFloat(viewData.getRingPercentage()), duration: duration)
+    }
 }
 
+// MARK: Privates
 extension MLBusinessLoyaltyRingView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -41,24 +49,27 @@ extension MLBusinessLoyaltyRingView {
         button.setTitleColor(UIColor.blue, for: .normal)
         self.addSubview(button)
 
-        let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage())
-        self.addSubview(ring)
+        if let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage(), fillPercentage: fillPercentProgress) as? UICircularProgressRing {
 
-        NSLayoutConstraint.activate([
-            ring.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            ring.heightAnchor.constraint(equalToConstant: 50),
-            ring.widthAnchor.constraint(equalToConstant: 50),
+            self.addSubview(ring)
+            self.ringView = ring
 
-            titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: 12),
-            titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -10),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            NSLayoutConstraint.activate([
+                ring.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+                ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+                ring.heightAnchor.constraint(equalToConstant: 50),
+                ring.widthAnchor.constraint(equalToConstant: 50),
 
-            button.heightAnchor.constraint(equalToConstant: 20),
-            button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 0),
-            button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+                titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: 12),
+                titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -10),
+                titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
 
-            self.heightAnchor.constraint(equalToConstant: 82)
+                button.heightAnchor.constraint(equalToConstant: 20),
+                button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 0),
+                button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+
+                self.heightAnchor.constraint(equalToConstant: 82)
             ])
+        }
     }
 }
