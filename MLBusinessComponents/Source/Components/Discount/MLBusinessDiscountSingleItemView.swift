@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MLUI
 
 class MLBusinessDiscountSingleItemView: UICollectionViewCell {
 
@@ -32,6 +33,7 @@ extension MLBusinessDiscountSingleItemView {
         let itemTitle = UILabel()
         itemTitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemTitle)
+        itemTitle.font = UIFont.ml_lightSystemFont(ofSize: 14)
         itemTitle.text = discountSingleItem.title
         itemTitle.textAlignment = .center
         itemTitle.numberOfLines = 1
@@ -44,8 +46,8 @@ extension MLBusinessDiscountSingleItemView {
         let itemSubtitle = UILabel()
         itemSubtitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemSubtitle)
+        itemSubtitle.font = UIFont.ml_boldSystemFont(ofSize: 20)
         itemSubtitle.text = discountSingleItem.subtitle
-        itemSubtitle.font = UIFont.boldSystemFont(ofSize: 20.0)
         itemSubtitle.textAlignment = .center
         itemSubtitle.numberOfLines = 1
         NSLayoutConstraint.activate([

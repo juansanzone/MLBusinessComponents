@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MLUI
 
 @objc open class MLBusinessDiscountBoxView: UIView {
     let viewData: MLBusinessDiscountBoxData
@@ -45,7 +46,7 @@ extension MLBusinessDiscountBoxView {
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(titleLabel)
             titleLabel.text = title
-            titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0) //TODO: Change by MeliUI
+            titleLabel.font = UIFont.ml_boldSystemFont(ofSize: 25)
             titleLabel.textAlignment = .center
             titleLabel.numberOfLines = 1 //TODO: Check UX
             NSLayoutConstraint.activate([
@@ -57,8 +58,8 @@ extension MLBusinessDiscountBoxView {
             let subtitleLabel = UILabel()
             subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(subtitleLabel)
+            subtitleLabel.font = UIFont.ml_lightSystemFont(ofSize: 16)
             subtitleLabel.text = subtitle
-            subtitleLabel.textColor = UIColor.gray
             subtitleLabel.textAlignment = .center
             subtitleLabel.numberOfLines = 1
             NSLayoutConstraint.activate([
