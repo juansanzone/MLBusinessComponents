@@ -15,6 +15,9 @@ class MLBusinessDiscountSingleItemView: UICollectionViewCell {
 
 extension MLBusinessDiscountSingleItemView {
     func setupCell(discountSingleItem: MLBusinessDiscountSingleItem) {
+
+        self.backgroundColor = .white
+        
         let icon: UIImageView = UIImageView(image: UIImage(named: "Starbucks-Logo"))
         icon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(icon)

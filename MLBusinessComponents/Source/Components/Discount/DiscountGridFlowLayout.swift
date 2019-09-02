@@ -1,9 +1,9 @@
 import UIKit
 
 class DiscountGridFlowLayout: UICollectionViewFlowLayout {
-    let actionItemHeight: CGFloat = 108
+    let actionItemHeight: CGFloat = 118
     let maxItemsPerRow = 3
-    let padding: CGFloat = 1
+    let padding: CGFloat = 20
 
     override init() {
         super.init()
@@ -38,7 +38,7 @@ class DiscountGridFlowLayout: UICollectionViewFlowLayout {
 
         // TODO: We use UIScreen because the frame of the CollectionView is zero when the view was offscreen.
         // TODO: Margin as constant.
-        let collectionViewWidth = UIScreen.main.bounds.width - 16
+        let collectionViewWidth = UIScreen.main.bounds.width - 56
 
         let availableWidth = collectionViewWidth - (padding * (CGFloat(itemsInRow) - CGFloat(1)))
         return availableWidth / CGFloat(itemsInRow)

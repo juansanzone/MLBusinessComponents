@@ -26,6 +26,7 @@ extension MLBusinessDiscountBoxView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.white // REMOVE
+        self.heightAnchor.constraint(equalToConstant: 340).isActive = true
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: DiscountGridFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +34,7 @@ extension MLBusinessDiscountBoxView {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .white
         collectionView.register(MLBusinessDiscountSingleItemView.self, forCellWithReuseIdentifier: "discountCell")
 
         self.addSubview(collectionView)
