@@ -13,6 +13,9 @@ import UIKit
     private let fillPercentProgress: Bool
     private weak var ringView: UICircularProgressRing?
 
+    private let viewHeight: CGFloat = 82
+    private let ringSize: CGFloat = 50
+
     init(_ ringViewData: MLBusinessLoyaltyRingData, fillPercentProgress: Bool = true) {
         self.viewData = ringViewData
         self.fillPercentProgress = fillPercentProgress
@@ -57,18 +60,18 @@ extension MLBusinessLoyaltyRingView {
             NSLayoutConstraint.activate([
                 ring.topAnchor.constraint(equalTo: self.topAnchor, constant: UI.Margin.S_MARGIN),
                 ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UI.Margin.S_MARGIN),
-                ring.heightAnchor.constraint(equalToConstant: UI.Size.XM_SIZE),
-                ring.widthAnchor.constraint(equalToConstant: UI.Size.XM_SIZE),
+                ring.heightAnchor.constraint(equalToConstant: ringSize),
+                ring.widthAnchor.constraint(equalToConstant: ringSize),
 
                 titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: UI.Margin.XS_MARGIN),
                 titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -UI.Margin.XXS_MARGIN),
                 titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UI.Margin.S_MARGIN),
 
-                button.heightAnchor.constraint(equalToConstant: UI.Size.S_SIZE),
+                button.heightAnchor.constraint(equalToConstant: 20), //todo cambiar por meli ui
                 button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
                 button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
 
-                self.heightAnchor.constraint(equalToConstant: UI.Size.L_SIZE)
+                self.heightAnchor.constraint(equalToConstant: viewHeight)
             ])
         }
     }

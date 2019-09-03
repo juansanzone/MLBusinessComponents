@@ -29,11 +29,4 @@ struct UI {
     struct Colors {
         static let placeHolderColor: UIColor = "efefef".hexaToUIColor()
     }
-
-    struct Size {
-        static let S_SIZE: CGFloat = 20
-        static let XM_SIZE: CGFloat = 50
-        static let M_SIZE: CGFloat = 60
-        static let L_SIZE: CGFloat = 82
-    }
 }

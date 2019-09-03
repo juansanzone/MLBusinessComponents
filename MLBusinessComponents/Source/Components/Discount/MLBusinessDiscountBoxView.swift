@@ -27,7 +27,7 @@ extension MLBusinessDiscountBoxView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.white
-        self.heightAnchor.constraint(equalToConstant: 340).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 340).isActive = true //todo calcular tamaño según cantidad de items
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: DiscountGridFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
