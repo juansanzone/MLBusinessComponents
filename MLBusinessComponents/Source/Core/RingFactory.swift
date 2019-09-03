@@ -9,7 +9,7 @@
 import UIKit
 
 struct RingFactory {
-    static func create(number: Int, hexaColor: String, percent: Float, fillPercentage: Bool) -> UIView {
+    static func create(number: Int, hexaColor: String, percent: Float, fillPercentage: Bool, innerCenterText: String? = nil) -> UIView {
         let ring = UICircularProgressRing()
         ring.style = .ontop
         ring.maxValue = 1
@@ -23,6 +23,7 @@ struct RingFactory {
         if fillPercentage {
             ring.startProgress(to: CGFloat(percent), duration: 0)
         }
+        ring.innerCenterText = innerCenterText
         ring.shouldShowValueText = false
         ring.translatesAutoresizingMaskIntoConstraints = false
         return ring

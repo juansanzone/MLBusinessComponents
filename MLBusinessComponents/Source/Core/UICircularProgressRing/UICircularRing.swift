@@ -70,6 +70,10 @@ open class UICircularRing: UIView {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
+    open var innerCenterText: String? {
+        didSet { ringLayer.setNeedsDisplay() }
+    }
+
     open var font: UIFont = UIFont.systemFont(ofSize: 18) {
         didSet { ringLayer.setNeedsDisplay() }
     }
@@ -748,20 +752,26 @@ class UICircularRingLayer: CAShapeLayer {
      Only drawn if shouldShowValueText = true
      */
     func drawValueLabel() {
+        if let innerText = ring.innerCenterText {
+            updateValueLabel(innerText)
+        }
         guard ring.shouldShowValueText else { return }
+        updateValueLabel(valueFormatter?.string(for: value))
+    }
 
+    func updateValueLabel(_ text: String?) {
         // Draws the text field
         // Some basic label properties are set
         valueLabel.font = ring.font
         valueLabel.textAlignment = .center
         valueLabel.textColor = ring.fontColor
-        valueLabel.text = valueFormatter?.string(for: value)
+
+        valueLabel.text = text
         ring.willDisplayLabel(label: valueLabel)
         valueLabel.sizeToFit()
 
         // Deterime what should be the center for the label
         valueLabel.center = CGPoint(x: bounds.midX, y: bounds.midY)
-
         valueLabel.drawText(in: bounds)
     }
 }

@@ -49,7 +49,7 @@ extension MLBusinessLoyaltyRingView {
         button.setTitleColor(UIColor.blue, for: .normal)
         self.addSubview(button)
 
-        if let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage(), fillPercentage: fillPercentProgress) as? UICircularProgressRing {
+        if let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage(), fillPercentage: fillPercentProgress, innerCenterText: String(viewData.getRingNumber())) as? UICircularProgressRing {
 
             self.addSubview(ring)
             self.ringView = ring
