@@ -11,7 +11,6 @@ import MLUI
 
 @objc open class MLBusinessDiscountBoxView: UIView {
     let viewData: MLBusinessDiscountBoxData
-    let discountCell = "discountCell"
 
     init(_ viewData: MLBusinessDiscountBoxData) {
         self.viewData = viewData
@@ -37,7 +36,7 @@ extension MLBusinessDiscountBoxView {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .white
-        collectionView.register(MLBusinessDiscountSingleItemView.self, forCellWithReuseIdentifier: discountCell)
+        collectionView.register(MLBusinessDiscountSingleItemView.self, forCellWithReuseIdentifier: MLBusinessDiscountSingleItemView.cellIdentifier)
 
         self.addSubview(collectionView)
         var collectionViewTopConstraint: NSLayoutConstraint = collectionView.topAnchor.constraint(equalTo: self.topAnchor)
@@ -90,7 +89,7 @@ extension MLBusinessDiscountBoxView: UICollectionViewDelegate, UICollectionViewD
 
         let itemData = viewData.getItems()[indexPath.item]
 
-        if let dequeueCell = collectionView.dequeueReusableCell(withReuseIdentifier: discountCell, for: indexPath) as? MLBusinessDiscountSingleItemView {
+        if let dequeueCell = collectionView.dequeueReusableCell(withReuseIdentifier: MLBusinessDiscountSingleItemView.cellIdentifier, for: indexPath) as? MLBusinessDiscountSingleItemView {
             dequeueCell.setupCell(discountSingleItem: itemData)
             return dequeueCell
         }

@@ -27,7 +27,7 @@ struct UI {
     }
 
     struct Colors {
-
+        static let placeHolderColor: UIColor = "efefef".hexaToUIColor()
     }
 
     struct Size {

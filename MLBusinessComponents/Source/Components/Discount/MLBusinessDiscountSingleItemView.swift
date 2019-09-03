@@ -11,7 +11,7 @@ import UIKit
 import MLUI
 
 class MLBusinessDiscountSingleItemView: UICollectionViewCell {
-
+    static let cellIdentifier: String = "discountSingleItemCell"
 }
 
 extension MLBusinessDiscountSingleItemView {
@@ -22,7 +22,7 @@ extension MLBusinessDiscountSingleItemView {
         icon.loadImage(url: discountSingleItem.iconImageUrl, placeholder: nil, placeHolderRadius: UI.Size.M_SIZE/2)
         icon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(icon)
-        icon.contentMode = .scaleAspectFill
+        icon.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             icon.heightAnchor.constraint(equalToConstant: UI.Size.M_SIZE),
             icon.widthAnchor.constraint(equalToConstant: UI.Size.M_SIZE),

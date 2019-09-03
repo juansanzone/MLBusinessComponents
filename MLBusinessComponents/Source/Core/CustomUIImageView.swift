@@ -21,12 +21,13 @@ class CustomUIImageView: UIImageView {
         } else {
             self.layer.cornerRadius = placeHolderRadius
             self.layer.masksToBounds = true
-            self.backgroundColor = "efefef".hexaToUIColor()
+            self.backgroundColor = UI.Colors.placeHolderColor
         }
 
         //Check & Load cached image
         if let cachedImage = CustomUIImageView.imageCache.object(forKey: url as NSString) {
             self.image = cachedImage
+            self.backgroundColor = .clear
             self.layer.cornerRadius = 0
             return
         }
@@ -48,6 +49,7 @@ class CustomUIImageView: UIImageView {
 
             DispatchQueue.main.async {
                 self.layer.cornerRadius = 0
+                self.backgroundColor = .clear
                 UIView.transition(with: self, duration: self.fadeInEnabled ? 0.5 : 0.0, options: .transitionCrossDissolve, animations: {
                     self.image = image
                 }, completion: nil)
