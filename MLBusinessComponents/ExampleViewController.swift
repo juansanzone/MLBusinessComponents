@@ -34,8 +34,8 @@ extension ExampleViewController {
         let ringView = MLBusinessLoyaltyRingView(LoyaltyRingData(), fillPercentProgress: false)
         view.addSubview(ringView)
         NSLayoutConstraint.activate([
-            ringView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            ringView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            ringView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UI.Margin.S_MARGIN),
+            ringView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UI.Margin.S_MARGIN),
             ringView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
         return ringView
@@ -45,9 +45,9 @@ extension ExampleViewController {
         let discountView = MLBusinessDiscountBoxView(DiscountData())
         view.addSubview(discountView)
         NSLayoutConstraint.activate([
-            discountView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            discountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: 20)
+            discountView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UI.Margin.S_MARGIN),
+            discountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UI.Margin.S_MARGIN),
+            discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: UI.Margin.M_MARGIN)
         ])
     }
 }

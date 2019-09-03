@@ -33,7 +33,7 @@ import UIKit
 extension MLBusinessLoyaltyRingView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor.white //REMOVE
+        self.backgroundColor = UIColor.white
 
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 2 //todo revisar
@@ -55,20 +55,20 @@ extension MLBusinessLoyaltyRingView {
             self.ringView = ring
 
             NSLayoutConstraint.activate([
-                ring.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-                ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-                ring.heightAnchor.constraint(equalToConstant: 50),
-                ring.widthAnchor.constraint(equalToConstant: 50),
+                ring.topAnchor.constraint(equalTo: self.topAnchor, constant: UI.Margin.S_MARGIN),
+                ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UI.Margin.S_MARGIN),
+                ring.heightAnchor.constraint(equalToConstant: UI.Size.XM_SIZE),
+                ring.widthAnchor.constraint(equalToConstant: UI.Size.XM_SIZE),
 
-                titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: 12),
-                titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -10),
-                titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+                titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: UI.Margin.XS_MARGIN),
+                titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -UI.Margin.XXS_MARGIN),
+                titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UI.Margin.S_MARGIN),
 
-                button.heightAnchor.constraint(equalToConstant: 20),
-                button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 0),
+                button.heightAnchor.constraint(equalToConstant: UI.Size.S_SIZE),
+                button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
                 button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
 
-                self.heightAnchor.constraint(equalToConstant: 82)
+                self.heightAnchor.constraint(equalToConstant: UI.Size.L_SIZE)
             ])
         }
     }
