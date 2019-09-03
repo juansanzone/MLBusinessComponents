@@ -18,7 +18,7 @@ class LoyaltyRingData: NSObject, MLBusinessLoyaltyRingData {
     }
 
     func getRingPercentage() -> Float {
-        return 0.20
+        return 0.80
     }
 
     func getTitle() -> String {
