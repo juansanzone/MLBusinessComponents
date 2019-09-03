@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MLUI
 
 @objc open class MLBusinessLoyaltyRingView: UIView {
     let viewData: MLBusinessLoyaltyRingData
@@ -42,14 +43,17 @@ extension MLBusinessLoyaltyRingView {
         titleLabel.numberOfLines = 2 //todo revisar
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = viewData.getTitle()
+        titleLabel.font = UIFont.ml_boldSystemFont(ofSize: UI.FontSize.S_FONT)
         self.addSubview(titleLabel)
 
         //change by meliui button
         let button = UIButton()
         button.setTitle(viewData.getButtonTitle(), for: .normal)
+        button.titleLabel?.font = UIFont.ml_semiboldSystemFont(ofSize: UI.FontSize.XS_FONT)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
-        button.setTitleColor(UIColor.blue, for: .normal)
+        // TODO: Ver si lo cambiamos por el boton de meliui
+        button.setTitleColor(MLStyleSheetManager.styleSheet.secondaryColor, for: .normal)
         self.addSubview(button)
 
         if let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage(), fillPercentage: fillPercentProgress, innerCenterText: String(viewData.getRingNumber())) as? UICircularProgressRing {
