@@ -17,7 +17,7 @@ struct RingFactory {
         ring.startAngle = 270
         ring.outerRingWidth = 5
         ring.innerRingWidth = 5
-        ring.outerRingColor = "efefef".hexaToUIColor()
+        ring.outerRingColor = UI.Colors.placeHolderColor
         ring.innerCapStyle = .round
         ring.gradientOptions = UICircularRingGradientOptions(startPosition: .left, endPosition: .right, colors: [hexaColor.hexaToUIColor(), hexaColor.hexaToUIColor()], colorLocations: [0.5])
         if fillPercentage {

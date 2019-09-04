@@ -11,21 +11,22 @@ import UIKit
 import MLUI
 
 class MLBusinessDiscountSingleItemView: UICollectionViewCell {
-
+    static let cellIdentifier: String = "discountSingleItemCell"
+    private let iconImageSize: CGFloat = 60
 }
 
 extension MLBusinessDiscountSingleItemView {
-    func setupCell(discountSingleItem: MLBusinessDiscountSingleItem) {
 
+    func setupCell(discountSingleItem: MLBusinessDiscountSingleItem) {
         self.backgroundColor = .white
-        
-        let icon: UIImageView = UIImageView(image: UIImage(named: "Starbucks-Logo"))
+        let icon = CustomUIImageView()
+        icon.loadImage(url: discountSingleItem.iconImageUrl, placeholder: nil, placeHolderRadius: iconImageSize/2)
         icon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(icon)
-        icon.contentMode = .scaleAspectFill
+        icon.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
-            icon.heightAnchor.constraint(equalToConstant: 60),
-            icon.widthAnchor.constraint(equalToConstant: 60),
+            icon.heightAnchor.constraint(equalToConstant: iconImageSize),
+            icon.widthAnchor.constraint(equalToConstant: iconImageSize),
             icon.topAnchor.constraint(equalTo: self.topAnchor),
             icon.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
@@ -33,12 +34,12 @@ extension MLBusinessDiscountSingleItemView {
         let itemTitle = UILabel()
         itemTitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemTitle)
-        itemTitle.font = UIFont.ml_lightSystemFont(ofSize: 14)
+        itemTitle.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XS_FONT)
         itemTitle.text = discountSingleItem.title
         itemTitle.textAlignment = .center
         itemTitle.numberOfLines = 1
         NSLayoutConstraint.activate([
-            itemTitle.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 16),
+            itemTitle.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: UI.Margin.S_MARGIN),
             itemTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             itemTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
@@ -46,7 +47,7 @@ extension MLBusinessDiscountSingleItemView {
         let itemSubtitle = UILabel()
         itemSubtitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemSubtitle)
-        itemSubtitle.font = UIFont.ml_boldSystemFont(ofSize: 20)
+        itemSubtitle.font = UIFont.ml_boldSystemFont(ofSize: UI.FontSize.M_FONT)
         itemSubtitle.text = discountSingleItem.subtitle
         itemSubtitle.textAlignment = .center
         itemSubtitle.numberOfLines = 1
