@@ -21,12 +21,13 @@
 		2393C67A231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C66F231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift */; };
 		2393C67B231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C670231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift */; };
 		2393C67C231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C672231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift */; };
-		2393C67D231D68CB00A47D39 /* MLBusinessDiscountSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C673231D68CB00A47D39 /* MLBusinessDiscountSingleItemView.swift */; };
+		2393C67D231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C673231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift */; };
 		2393C67E231D68CB00A47D39 /* DiscountGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C674231D68CB00A47D39 /* DiscountGridFlowLayout.swift */; };
 		2393C67F231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C675231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift */; };
 		2393C680231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C676231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift */; };
 		CE4F8304231D7A5C00FAFB8B /* CustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F8303231D7A5C00FAFB8B /* CustomUIImageView.swift */; };
 		CE4F8306231DAFDF00FAFB8B /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F8305231DAFDF00FAFB8B /* UIConstants.swift */; };
+		CE4F830823203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F830723203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,13 +48,14 @@
 		2393C66F231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingData.swift; sourceTree = "<group>"; };
 		2393C670231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingView.swift; sourceTree = "<group>"; };
 		2393C672231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItem.swift; sourceTree = "<group>"; };
-		2393C673231D68CB00A47D39 /* MLBusinessDiscountSingleItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItemView.swift; sourceTree = "<group>"; };
+		2393C673231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountTableViewCell.swift; sourceTree = "<group>"; };
 		2393C674231D68CB00A47D39 /* DiscountGridFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountGridFlowLayout.swift; sourceTree = "<group>"; };
 		2393C675231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountBoxData.swift; sourceTree = "<group>"; };
 		2393C676231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountBoxView.swift; sourceTree = "<group>"; };
 		34CD5ED1D20D0EF0A95C0A69 /* Pods_MLBusinessComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLBusinessComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4F8303231D7A5C00FAFB8B /* CustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImageView.swift; sourceTree = "<group>"; };
 		CE4F8305231DAFDF00FAFB8B /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		CE4F830723203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,10 +171,11 @@
 			isa = PBXGroup;
 			children = (
 				2393C672231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift */,
-				2393C673231D68CB00A47D39 /* MLBusinessDiscountSingleItemView.swift */,
+				2393C673231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift */,
 				2393C674231D68CB00A47D39 /* DiscountGridFlowLayout.swift */,
 				2393C675231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift */,
 				2393C676231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift */,
+				CE4F830723203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift */,
 			);
 			path = Discount;
 			sourceTree = "<group>";
@@ -317,8 +320,9 @@
 				2326FD7F2316F405005B5089 /* AppDelegate.swift in Sources */,
 				2393C663231D674A00A47D39 /* DiscountData.swift in Sources */,
 				CE4F8306231DAFDF00FAFB8B /* UIConstants.swift in Sources */,
-				2393C67D231D68CB00A47D39 /* MLBusinessDiscountSingleItemView.swift in Sources */,
+				2393C67D231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift in Sources */,
 				2393C67C231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift in Sources */,
+				CE4F830823203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift in Sources */,
 				2393C67E231D68CB00A47D39 /* DiscountGridFlowLayout.swift in Sources */,
 				2393C67F231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift in Sources */,
 				CE4F8304231D7A5C00FAFB8B /* CustomUIImageView.swift in Sources */,

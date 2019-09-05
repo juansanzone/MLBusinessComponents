@@ -2,7 +2,7 @@
 //  MLBusinessDiscountSingleItemView.swift
 //  MLBusinessComponents
 //
-//  Created by Esteban Adrian Boffa on 29/08/2019.
+//  Created by Esteban Adrian Boffa on 04/09/2019.
 //  Copyright © 2019 Juan Sanzone. All rights reserved.
 //
 
@@ -10,16 +10,28 @@ import Foundation
 import UIKit
 import MLUI
 
-class MLBusinessDiscountSingleItemView: UICollectionViewCell {
-    static let cellIdentifier: String = "discountSingleItemCell"
-    private let iconImageSize: CGFloat = 60
+class MLBusinessDiscountSingleItemView: UIView {
+
+    private let discountSingleItem: MLBusinessDiscountSingleItem
+    private let iconImageSize: CGFloat = 56
+
+    init(discountSingleItem: MLBusinessDiscountSingleItem) {
+        self.discountSingleItem = discountSingleItem
+        super.init(frame: .zero)
+        render()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
+// MARK: Privates
 extension MLBusinessDiscountSingleItemView {
 
-    func setupCell(discountSingleItem: MLBusinessDiscountSingleItem) {
+    private func render() {
         self.backgroundColor = .white
-        let icon = CustomUIImageView()
+        let icon: CustomUIImageView = CustomUIImageView()
         icon.loadImage(url: discountSingleItem.iconImageUrl, placeholder: nil, placeHolderRadius: iconImageSize/2)
         icon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(icon)
@@ -34,12 +46,12 @@ extension MLBusinessDiscountSingleItemView {
         let itemTitle = UILabel()
         itemTitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemTitle)
-        itemTitle.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XS_FONT)
+        itemTitle.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XXS_FONT)
         itemTitle.text = discountSingleItem.title
         itemTitle.textAlignment = .center
         itemTitle.numberOfLines = 1
         NSLayoutConstraint.activate([
-            itemTitle.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: UI.Margin.S_MARGIN),
+            itemTitle.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: UI.Margin.XS_MARGIN),
             itemTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             itemTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
