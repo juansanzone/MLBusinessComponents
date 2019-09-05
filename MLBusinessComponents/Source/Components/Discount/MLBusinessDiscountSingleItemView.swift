@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MLUI
 
-class MLBusinessDiscountSingleItemView: UIView {
+final class MLBusinessDiscountSingleItemView: UIView {
 
     private let discountSingleItem: MLBusinessDiscountSingleItem
     private let iconImageSize: CGFloat = 56

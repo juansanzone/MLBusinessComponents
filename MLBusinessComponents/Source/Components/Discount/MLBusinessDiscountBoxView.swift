@@ -110,13 +110,9 @@ extension MLBusinessDiscountBoxView {
 
     private func getItems(_ indexPath: IndexPath) -> [MLBusinessDiscountSingleItem] {
         var offset = itemsPerRow - 1
-        let indexArray = indexPath.row*itemsPerRow
+        let indexArray = indexPath.row * itemsPerRow
         if indexArray >= 0 && indexArray + offset >= viewData.getItems().count {
-            if indexArray + 1 >= viewData.getItems().count {
-                offset = 0
-            } else {
-                offset = 1
-            }
+            offset = indexArray + 1 >= viewData.getItems().count ? 0 : 1
         }
         return Array(viewData.getItems()[indexArray...indexArray+offset])
     }

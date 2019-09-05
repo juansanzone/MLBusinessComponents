@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MLUI
 
-class MLBusinessDiscountTableViewCell: UITableViewCell {
+final class MLBusinessDiscountTableViewCell: UITableViewCell {
 
     static let cellIdentifier: String = "discountTableViewCell"
     private let stackView = UIStackView(frame: .zero)
