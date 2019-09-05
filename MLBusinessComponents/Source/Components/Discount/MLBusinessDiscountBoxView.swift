@@ -10,7 +10,9 @@ import UIKit
 import MLUI
 
 @objc open class MLBusinessDiscountBoxView: UIView {
-    let viewData: MLBusinessDiscountBoxData
+
+    private let viewData: MLBusinessDiscountBoxData
+    private let itemsPerRow: Int = 3
 
     init(_ viewData: MLBusinessDiscountBoxData) {
         self.viewData = viewData
@@ -24,22 +26,22 @@ import MLUI
 }
 
 extension MLBusinessDiscountBoxView {
+
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.white
-        self.heightAnchor.constraint(equalToConstant: 340).isActive = true //todo calcular tamaño según cantidad de items
+        self.heightAnchor.constraint(equalToConstant: 540).isActive = true //todo calcular tamaño según cantidad de items
 
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: DiscountGridFlowLayout())
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .white
-        collectionView.register(MLBusinessDiscountSingleItemView.self, forCellWithReuseIdentifier: MLBusinessDiscountSingleItemView.cellIdentifier)
-
-        self.addSubview(collectionView)
-        var collectionViewTopConstraint: NSLayoutConstraint = collectionView.topAnchor.constraint(equalTo: self.topAnchor)
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.register(MLBusinessDiscountTableViewCell.self, forCellReuseIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier)
+        self.addSubview(tableView)
+        var tableViewTopConstraint: NSLayoutConstraint = tableView.topAnchor.constraint(equalTo: self.topAnchor)
 
         if let title = viewData.getTitle?(), let subtitle = viewData.getSubtitle?() {
             let titleLabel = UILabel()
@@ -68,32 +70,50 @@ extension MLBusinessDiscountBoxView {
                 subtitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UI.Margin.S_MARGIN)
             ])
 
-            collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: UI.Margin.L_MARGIN)
+            tableViewTopConstraint = tableView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: UI.Margin.M_MARGIN)
         }
 
         NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            collectionViewTopConstraint
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            tableViewTopConstraint
         ])
     }
 }
 
-extension MLBusinessDiscountBoxView: UICollectionViewDelegate, UICollectionViewDataSource {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewData.getItems().count
+// MARK: Delegates
+extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource {
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return getNumbersOfRows(viewData.getItems().count)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let itemData = viewData.getItems()[indexPath.item]
-
-        if let dequeueCell = collectionView.dequeueReusableCell(withReuseIdentifier: MLBusinessDiscountSingleItemView.cellIdentifier, for: indexPath) as? MLBusinessDiscountSingleItemView {
-            dequeueCell.setupCell(discountSingleItem: itemData)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let itemsData: [MLBusinessDiscountSingleItem] = getItems(indexPath)
+        if let dequeueCell = tableView.dequeueReusableCell(withIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier, for: indexPath) as? MLBusinessDiscountTableViewCell {
+            dequeueCell.setupCell(discountItems: itemsData)
             return dequeueCell
         }
-        return UICollectionViewCell()
+        return UITableViewCell()
     }
 }
 
+
+// MARK: DataSource functions
+extension MLBusinessDiscountBoxView {
+
+    func getNumbersOfRows(_ itemsCount: Int) -> Int {
+        let roundedValue = Int(itemsCount/itemsPerRow)
+        return itemsCount % itemsPerRow == 0 ? roundedValue : roundedValue + 1
+    }
+
+    private func getItems(_ indexPath: IndexPath) -> [MLBusinessDiscountSingleItem] {
+        var offset = itemsPerRow - 1
+        let indexArray = indexPath.row * itemsPerRow
+        if indexArray >= 0 && indexArray + offset >= viewData.getItems().count {
+            offset = indexArray + 1 >= viewData.getItems().count ? 0 : 1
+        }
+        return Array(viewData.getItems()[indexArray...indexArray+offset])
+    }
+}

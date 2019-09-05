@@ -47,7 +47,7 @@ extension ExampleViewController {
         NSLayoutConstraint.activate([
             discountView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UI.Margin.S_MARGIN),
             discountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UI.Margin.S_MARGIN),
-            discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: UI.Margin.M_MARGIN)
+            discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: UI.Margin.XM_MARGIN)
         ])
     }
 }

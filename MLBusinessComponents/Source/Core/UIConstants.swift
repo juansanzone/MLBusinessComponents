@@ -15,14 +15,16 @@ struct UI {
         static let XXS_MARGIN: CGFloat = 10
         static let XS_MARGIN: CGFloat = 12
         static let S_MARGIN: CGFloat = 16
-        static let M_MARGIN: CGFloat = 20
+        static let M_MARGIN: CGFloat = 18
+        static let XM_MARGIN: CGFloat = 20
         static let L_MARGIN: CGFloat = 24
     }
 
     struct FontSize {
+        static let XXS_FONT: CGFloat = 12
         static let XS_FONT: CGFloat = 14
         static let S_FONT: CGFloat = 16
-        static let M_FONT: CGFloat = 20
+        static let M_FONT: CGFloat = 18
         static let L_FONT: CGFloat = 25
     }
 
