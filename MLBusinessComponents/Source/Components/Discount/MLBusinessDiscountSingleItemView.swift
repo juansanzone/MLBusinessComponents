@@ -12,6 +12,7 @@ import MLUI
 
 final class MLBusinessDiscountSingleItemView: UIView {
 
+    static let itemHeight: CGFloat = 104
     private let discountSingleItem: MLBusinessDiscountSingleItem
     private let iconImageSize: CGFloat = 56
 

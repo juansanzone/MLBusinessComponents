@@ -30,7 +30,6 @@ extension MLBusinessDiscountBoxView {
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.white
-        self.heightAnchor.constraint(equalToConstant: 540).isActive = true //todo calcular tamaño según cantidad de items
 
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +40,8 @@ extension MLBusinessDiscountBoxView {
         tableView.allowsSelection = false
         tableView.register(MLBusinessDiscountTableViewCell.self, forCellReuseIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier)
         self.addSubview(tableView)
+        let rowHeight = CGFloat(getNumbersOfRows(viewData.getItems().count)) * MLBusinessDiscountSingleItemView.itemHeight
+        tableView.heightAnchor.constraint(equalToConstant: rowHeight).isActive = true
         var tableViewTopConstraint: NSLayoutConstraint = tableView.topAnchor.constraint(equalTo: self.topAnchor)
 
         if let title = viewData.getTitle?(), let subtitle = viewData.getSubtitle?() {
