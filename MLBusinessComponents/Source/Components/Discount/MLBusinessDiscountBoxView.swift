@@ -61,7 +61,7 @@ extension MLBusinessDiscountBoxView {
             let subtitleLabel = UILabel()
             subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(subtitleLabel)
-            subtitleLabel.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.S_FONT)
+            subtitleLabel.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XS_FONT)
             subtitleLabel.text = subtitle
             subtitleLabel.textAlignment = .center
             subtitleLabel.numberOfLines = 1
