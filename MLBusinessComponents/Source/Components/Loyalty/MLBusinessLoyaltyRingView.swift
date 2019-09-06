@@ -12,12 +12,10 @@ import MLUI
 @objc open class MLBusinessLoyaltyRingView: UIView {
     let viewData: MLBusinessLoyaltyRingData
 
-    private let fillPercentProgress: Bool
-    private weak var ringView: UICircularProgressRing?
-
     private let viewHeight: CGFloat = 55
     private let ringSize: CGFloat = 46
-
+    private let fillPercentProgress: Bool
+    private weak var ringView: UICircularProgressRing?
     private var tapAction: ((_ deepLink: String) -> Void)?
 
     init(_ ringViewData: MLBusinessLoyaltyRingData, fillPercentProgress: Bool = true) {
@@ -42,6 +40,7 @@ extension MLBusinessLoyaltyRingView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.white
 
+        let buttonHeight: CGFloat = 20
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 2 //TODO: revisar con ux
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -72,15 +71,12 @@ extension MLBusinessLoyaltyRingView {
                 ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UI.Margin.S_MARGIN),
                 ring.heightAnchor.constraint(equalToConstant: ringSize),
                 ring.widthAnchor.constraint(equalToConstant: ringSize),
-
                 titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: UI.Margin.M_MARGIN),
                 titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -UI.Margin.XXS_MARGIN),
                 titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UI.Margin.S_MARGIN),
-
-                button.heightAnchor.constraint(equalToConstant: 20), //todo cambiar por meli ui
+                button.heightAnchor.constraint(equalToConstant: buttonHeight),
                 button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
                 button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-
                 self.heightAnchor.constraint(equalToConstant: viewHeight)
             ])
         }
@@ -94,7 +90,7 @@ extension MLBusinessLoyaltyRingView {
 
 // MARK: Public
 extension MLBusinessLoyaltyRingView {
-    @objc open func setTapAction(_ action: @escaping ((_ deepLink: String) -> Void)) {
+    @objc open func addTapAction(_ action: @escaping ((_ deepLink: String) -> Void)) {
         self.tapAction = action
     }
 }
