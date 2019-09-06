@@ -74,7 +74,7 @@ open class UICircularRing: UIView {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var font: UIFont = UIFont.systemFont(ofSize: 18) {
+    open var font: UIFont = UIFont.ml_semiboldSystemFont(ofSize: 28) {
         didSet { ringLayer.setNeedsDisplay() }
     }
 

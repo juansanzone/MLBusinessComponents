@@ -11,11 +11,14 @@ import MLUI
 
 @objc open class MLBusinessLoyaltyRingView: UIView {
     let viewData: MLBusinessLoyaltyRingData
+
     private let fillPercentProgress: Bool
     private weak var ringView: UICircularProgressRing?
 
-    private let viewHeight: CGFloat = 82
-    private let ringSize: CGFloat = 50
+    private let viewHeight: CGFloat = 55
+    private let ringSize: CGFloat = 46
+
+    private var tapAction: ((_ deepLink: String) -> Void)?
 
     init(_ ringViewData: MLBusinessLoyaltyRingData, fillPercentProgress: Bool = true) {
         self.viewData = ringViewData
@@ -40,21 +43,23 @@ extension MLBusinessLoyaltyRingView {
         self.backgroundColor = UIColor.white
 
         let titleLabel = UILabel()
-        titleLabel.numberOfLines = 2 //todo revisar
+        titleLabel.numberOfLines = 2 //TODO: revisar con ux
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = viewData.getTitle()
-        titleLabel.font = UIFont.ml_boldSystemFont(ofSize: UI.FontSize.S_FONT)
+        titleLabel.font = UIFont.ml_semiboldSystemFont(ofSize: UI.FontSize.S_FONT)
+        //TODO: Revisa con UX
+        //titleLabel.adjustsFontSizeToFitWidth = true
+        //titleLabel.minimumScaleFactor = 0.80
         titleLabel.applyBusinessLabelStyle()
         self.addSubview(titleLabel)
 
-        //change by meliui button
         let button = UIButton()
         button.setTitle(viewData.getButtonTitle(), for: .normal)
         button.titleLabel?.font = UIFont.ml_semiboldSystemFont(ofSize: UI.FontSize.XS_FONT)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
-        // TODO: Ver si lo cambiamos por el boton de meliui
         button.setTitleColor(MLStyleSheetManager.styleSheet.secondaryColor, for: .normal)
+        button.addTarget(self, action:  #selector(self.didTapOnButton), for: .touchUpInside)
         self.addSubview(button)
 
         if let ring = RingFactory.create(number: viewData.getRingNumber(), hexaColor: viewData.getRingHexaColor(), percent: viewData.getRingPercentage(), fillPercentage: fillPercentProgress, innerCenterText: String(viewData.getRingNumber())) as? UICircularProgressRing {
@@ -63,7 +68,7 @@ extension MLBusinessLoyaltyRingView {
             self.ringView = ring
 
             NSLayoutConstraint.activate([
-                ring.topAnchor.constraint(equalTo: self.topAnchor, constant: UI.Margin.S_MARGIN),
+                ring.centerYAnchor.constraint(equalTo: self.centerYAnchor),
                 ring.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UI.Margin.S_MARGIN),
                 ring.heightAnchor.constraint(equalToConstant: ringSize),
                 ring.widthAnchor.constraint(equalToConstant: ringSize),
@@ -79,5 +84,17 @@ extension MLBusinessLoyaltyRingView {
                 self.heightAnchor.constraint(equalToConstant: viewHeight)
             ])
         }
+    }
+
+    // MARK: Tap Selector
+    @objc private func didTapOnButton() {
+        tapAction?(viewData.getButtonDeepLink())
+    }
+}
+
+// MARK: Public
+extension MLBusinessLoyaltyRingView {
+    @objc open func setTapAction(_ action: @escaping ((_ deepLink: String) -> Void)) {
+        self.tapAction = action
     }
 }

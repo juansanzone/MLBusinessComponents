@@ -15,10 +15,11 @@ struct RingFactory {
         ring.maxValue = 1
         ring.minValue = 0
         ring.startAngle = 270
-        ring.outerRingWidth = 5
-        ring.innerRingWidth = 5
+        ring.outerRingWidth = 3.5
+        ring.innerRingWidth = 3.5
         ring.outerRingColor = UI.Colors.placeHolderColor
         ring.innerCapStyle = .round
+        ring.fontColor = hexaColor.hexaToUIColor()
         ring.gradientOptions = UICircularRingGradientOptions(startPosition: .left, endPosition: .right, colors: [hexaColor.hexaToUIColor(), hexaColor.hexaToUIColor()], colorLocations: [0.5])
         if fillPercentage {
             ring.startProgress(to: CGFloat(percent), duration: 0)

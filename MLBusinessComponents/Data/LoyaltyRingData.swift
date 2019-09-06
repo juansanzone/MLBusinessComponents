@@ -10,7 +10,7 @@ import UIKit
 
 class LoyaltyRingData: NSObject, MLBusinessLoyaltyRingData {
     func getRingNumber() -> Int {
-        return 4
+        return 3
     }
 
     func getRingHexaColor() -> String {
@@ -22,7 +22,7 @@ class LoyaltyRingData: NSObject, MLBusinessLoyaltyRingData {
     }
 
     func getTitle() -> String {
-        return "Sumaste 201 puntos"
+        return "Ganaste 100 Puntos"
     }
 
     func getButtonTitle() -> String {

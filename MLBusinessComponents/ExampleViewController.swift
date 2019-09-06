@@ -38,6 +38,11 @@ extension ExampleViewController {
             ringView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UI.Margin.S_MARGIN),
             ringView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+
+        ringView.setTapAction { link in
+            print(link)
+        }
+        
         return ringView
     }
 
