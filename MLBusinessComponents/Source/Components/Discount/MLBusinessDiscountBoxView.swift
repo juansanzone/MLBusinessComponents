@@ -38,6 +38,7 @@ extension MLBusinessDiscountBoxView {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
         tableView.register(MLBusinessDiscountTableViewCell.self, forCellReuseIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier)
         self.addSubview(tableView)
         let rowHeight = CGFloat(getNumbersOfRows(viewData.getItems().count)) * MLBusinessDiscountSingleItemView.itemHeight
@@ -50,6 +51,7 @@ extension MLBusinessDiscountBoxView {
             self.addSubview(titleLabel)
             titleLabel.text = title
             titleLabel.font = UIFont.ml_boldSystemFont(ofSize: UI.FontSize.L_FONT)
+            titleLabel.applyBusinessLabelStyle()
             titleLabel.textAlignment = .center
             titleLabel.numberOfLines = 1 //TODO: Check UX
             NSLayoutConstraint.activate([
@@ -62,6 +64,7 @@ extension MLBusinessDiscountBoxView {
             subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(subtitleLabel)
             subtitleLabel.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XS_FONT)
+            subtitleLabel.applyBusinessLabelStyle()
             subtitleLabel.text = subtitle
             subtitleLabel.textAlignment = .center
             subtitleLabel.numberOfLines = 1

@@ -44,6 +44,7 @@ extension MLBusinessLoyaltyRingView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = viewData.getTitle()
         titleLabel.font = UIFont.ml_boldSystemFont(ofSize: UI.FontSize.S_FONT)
+        titleLabel.applyBusinessLabelStyle()
         self.addSubview(titleLabel)
 
         //change by meliui button

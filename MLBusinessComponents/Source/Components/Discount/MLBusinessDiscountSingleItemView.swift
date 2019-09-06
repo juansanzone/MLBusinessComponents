@@ -48,6 +48,7 @@ extension MLBusinessDiscountSingleItemView {
         itemTitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemTitle)
         itemTitle.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XXS_FONT)
+        itemTitle.applyBusinessLabelStyle()
         itemTitle.text = discountSingleItem.title
         itemTitle.textAlignment = .center
         itemTitle.numberOfLines = 1
@@ -61,6 +62,7 @@ extension MLBusinessDiscountSingleItemView {
         itemSubtitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(itemSubtitle)
         itemSubtitle.font = UIFont.ml_boldSystemFont(ofSize: UI.FontSize.M_FONT)
+        itemSubtitle.applyBusinessLabelStyle()
         itemSubtitle.text = discountSingleItem.subtitle
         itemSubtitle.textAlignment = .center
         itemSubtitle.numberOfLines = 1

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct UI {
-
     struct Margin {
         static let XXS_MARGIN: CGFloat = 10
         static let XS_MARGIN: CGFloat = 12
@@ -30,5 +29,12 @@ struct UI {
 
     struct Colors {
         static let placeHolderColor: UIColor = UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
+        static let mainLabelColor: UIColor = UIColor(red:0, green:0, blue:0, alpha:0.8)
+    }
+}
+
+internal extension UILabel {
+    func applyBusinessLabelStyle() {
+        self.textColor = UI.Colors.mainLabelColor
     }
 }

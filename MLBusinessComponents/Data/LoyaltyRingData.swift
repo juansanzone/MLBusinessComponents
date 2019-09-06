@@ -22,7 +22,7 @@ class LoyaltyRingData: NSObject, MLBusinessLoyaltyRingData {
     }
 
     func getTitle() -> String {
-        return "Sumaste 201 Mercado Puntos"
+        return "Sumaste 201 puntos"
     }
 
     func getButtonTitle() -> String {
