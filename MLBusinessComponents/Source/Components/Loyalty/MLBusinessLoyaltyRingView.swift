@@ -67,7 +67,7 @@ extension MLBusinessLoyaltyRingView {
                 ring.heightAnchor.constraint(equalToConstant: ringSize),
                 ring.widthAnchor.constraint(equalToConstant: ringSize),
 
-                titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: UI.Margin.XS_MARGIN),
+                titleLabel.leftAnchor.constraint(equalTo: ring.rightAnchor, constant: UI.Margin.M_MARGIN),
                 titleLabel.centerYAnchor.constraint(equalTo: ring.centerYAnchor, constant: -UI.Margin.XXS_MARGIN),
                 titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UI.Margin.S_MARGIN),
 
