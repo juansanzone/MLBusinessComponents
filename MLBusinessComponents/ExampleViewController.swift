@@ -54,6 +54,10 @@ extension ExampleViewController {
             discountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UI.Margin.S_MARGIN),
             discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: UI.Margin.XM_MARGIN)
         ])
+
+        discountView.setTapAction { (deepLink, trackId) in
+//             print(deepLink, trackId)
+        }
     }
 }
 

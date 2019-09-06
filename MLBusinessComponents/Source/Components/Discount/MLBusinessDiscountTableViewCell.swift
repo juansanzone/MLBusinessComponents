@@ -11,10 +11,10 @@ import UIKit
 import MLUI
 
 final class MLBusinessDiscountTableViewCell: UITableViewCell {
-
     static let cellIdentifier: String = "discountTableViewCell"
     private let stackView = UIStackView(frame: .zero)
     private var itemViews: [MLBusinessDiscountSingleItemView] = [MLBusinessDiscountSingleItemView]()
+    private weak var delegate: MLBusinessUserInteractionProtocol?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,16 +31,16 @@ final class MLBusinessDiscountTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: Setup Cell
 extension MLBusinessDiscountTableViewCell {
-
-    func setupCell(discountItems: [MLBusinessDiscountSingleItem]) {
+    func setupCell(discountItems: [MLBusinessDiscountSingleItem], interactionDelegate: MLBusinessUserInteractionProtocol? = nil) {
+        delegate = interactionDelegate
         updateStackView(discountItems)
     }
 }
 
 // MARK: StackView Privates
 extension MLBusinessDiscountTableViewCell {
-
     private func setupStackView() {
         self.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +60,7 @@ extension MLBusinessDiscountTableViewCell {
         for item in items {
             let itemView = MLBusinessDiscountSingleItemView(discountSingleItem: item)
             itemViews.append(itemView)
+            itemView.delegate = self
             stackView.addArrangedSubview(itemView)
         }
     }
@@ -69,5 +70,12 @@ extension MLBusinessDiscountTableViewCell {
             stackView.removeArrangedSubview(itemView)
         }
         itemViews.removeAll()
+    }
+}
+
+// MARK: MLBusinessUserInteractionProtocol
+extension MLBusinessDiscountTableViewCell: MLBusinessUserInteractionProtocol {
+    func didTap(item: MLBusinessDiscountSingleItem) {
+        delegate?.didTap(item: item)
     }
 }

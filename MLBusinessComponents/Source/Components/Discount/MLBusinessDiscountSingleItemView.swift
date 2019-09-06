@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 import MLUI
 
-final class MLBusinessDiscountSingleItemView: UIView {
+protocol MLBusinessUserInteractionProtocol: NSObjectProtocol {
+    func didTap(item: MLBusinessDiscountSingleItem)
+}
 
+final class MLBusinessDiscountSingleItemView: UIView {
     static let itemHeight: CGFloat = 104
     private let discountSingleItem: MLBusinessDiscountSingleItem
     private let iconImageSize: CGFloat = 56
+
+    weak var delegate: MLBusinessUserInteractionProtocol?
 
     init(discountSingleItem: MLBusinessDiscountSingleItem) {
         self.discountSingleItem = discountSingleItem
@@ -72,5 +77,15 @@ extension MLBusinessDiscountSingleItemView {
             itemSubtitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             itemSubtitle.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+
+        if discountSingleItem.deepLink != nil {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnButton))
+            self.addGestureRecognizer(tapGesture)
+        }
+    }
+
+    // MARK: Tap Selector
+    @objc private func didTapOnButton() {
+        delegate?.didTap(item: discountSingleItem)
     }
 }
