@@ -12,10 +12,14 @@ import Foundation
     let title: String
     let subtitle: String
     let iconImageUrl: String
+    let deepLink: String?
+    let trackId: String?
 
-    init(title: String, subtitle: String, iconImageUrl: String) {
+    init(title: String, subtitle: String, iconImageUrl: String, deepLink: String? = nil, trackId: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.iconImageUrl = iconImageUrl
+        self.deepLink = deepLink
+        self.trackId = trackId
     }
 }

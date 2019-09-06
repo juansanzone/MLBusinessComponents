@@ -13,6 +13,7 @@ import MLUI
 
     private let viewData: MLBusinessDiscountBoxData
     private let itemsPerRow: Int = 3
+    private var tapAction: ((_ deepLink: String?, _ trackId: String?) -> Void)?
 
     init(_ viewData: MLBusinessDiscountBoxData) {
         self.viewData = viewData
@@ -26,7 +27,6 @@ import MLUI
 }
 
 extension MLBusinessDiscountBoxView {
-
     private func render() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.white
@@ -39,6 +39,7 @@ extension MLBusinessDiscountBoxView {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
+
         tableView.register(MLBusinessDiscountTableViewCell.self, forCellReuseIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier)
         self.addSubview(tableView)
         let rowHeight = CGFloat(getNumbersOfRows(viewData.getItems().count)) * MLBusinessDiscountSingleItemView.itemHeight
@@ -88,7 +89,6 @@ extension MLBusinessDiscountBoxView {
 
 // MARK: Delegates
 extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource {
-
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getNumbersOfRows(viewData.getItems().count)
     }
@@ -96,17 +96,24 @@ extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemsData: [MLBusinessDiscountSingleItem] = getItems(indexPath)
         if let dequeueCell = tableView.dequeueReusableCell(withIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier, for: indexPath) as? MLBusinessDiscountTableViewCell {
-            dequeueCell.setupCell(discountItems: itemsData)
+            dequeueCell.setupCell(discountItems: itemsData, interactionDelegate: self)
             return dequeueCell
         }
         return UITableViewCell()
     }
-}
 
+    /*
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if getNumbersOfRows(viewData.getItems().count) - 1 == indexPath.row {
+            return MLBusinessDiscountSingleItemView.itemHeight
+        } else {
+            return MLBusinessDiscountSingleItemView.itemHeight + 18
+        }
+    }*/
+}
 
 // MARK: DataSource functions
 extension MLBusinessDiscountBoxView {
-
     func getNumbersOfRows(_ itemsCount: Int) -> Int {
         let roundedValue = Int(itemsCount/itemsPerRow)
         return itemsCount % itemsPerRow == 0 ? roundedValue : roundedValue + 1
@@ -119,5 +126,19 @@ extension MLBusinessDiscountBoxView {
             offset = indexArray + 1 >= viewData.getItems().count ? 0 : 1
         }
         return Array(viewData.getItems()[indexArray...indexArray+offset])
+    }
+}
+
+// MARK: MLBusinessUserInteractionProtocol
+extension MLBusinessDiscountBoxView: MLBusinessUserInteractionProtocol {
+    func didTap(item: MLBusinessDiscountSingleItem) {
+        tapAction?(item.deepLink, item.trackId)
+    }
+}
+
+// MARK: Public Setter
+extension MLBusinessDiscountBoxView {
+    @objc open func setTapAction(_ action: ((_ deepLink: String?, _ trackId: String?) -> Void)?) {
+        self.tapAction = action
     }
 }
