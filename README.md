@@ -100,13 +100,13 @@ PXTracker.setListener(self)
 ```
 
 ### 😉 Next steps?
-* [ ] Bitrise for releases
-* [ ] Codebeat integration
-* [ ] Snapshot Test cases
-* [ ] SwiftLint
-* [ ] Migration to Swift 5
+* [ ] Bitrise for releases.
+* [ ] Codebeat integration.
+* [ ] Snapshot Test cases.
+* [ ] SwiftLint.
+* [ ] Migration to Swift 5.
 * [ ] iOS13 Dark Mode variant.
-* [ ] SwiftUI bridges / UIKit <-> SwiftUI
+* [ ] SwiftUI bridges / UIKit <-> SwiftUI.
 
 ### 📋 Supported OS & SDK Versions
 * iOS 10.0+
@@ -117,16 +117,12 @@ PXTracker.setListener(self)
 ### 🔮 Project Example
 This project include a Swift example project using `MLBusinessComponents` basic components.
 
-### 📚 Full Documentation
-+ [Advanced full documentation](http://TBD)
-
 ## ❤️ Feedback
-Feel free to contribute or send feedback.
-Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
+- Feel free to contribute or send feedback. Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
 
 ## 👨🏻‍💻 Author
-Juan Sanzone / @juansanzone
-Esteban Boffa / @eboffa
+- Juan Sanzone / @juansanzone
+- Esteban Boffa / @eboffa
 
 ## 👮🏻 License
 
