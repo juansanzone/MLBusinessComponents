@@ -106,6 +106,7 @@ PXTracker.setListener(self)
 * [ ] SwiftLint.
 * [ ] Migration to Swift 5.
 * [ ] iOS13 Dark Mode variant.
+* [ ] Swift package manager support.
 * [ ] SwiftUI bridges / UIKit <-> SwiftUI.
 
 ### 📋 Supported OS & SDK Versions
