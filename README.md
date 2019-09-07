@@ -30,7 +30,7 @@ import MLBusinessComponents
 ```
 
 ### 2 - Use your UI component.
-Choose and initialize the componentes. Each component is a subclass of UIView.
+Choose and initialize the components. Each component is a subclass of UIView.
 
 
 ## 👔 UI COMPONENTS
@@ -105,8 +105,8 @@ PXTracker.setListener(self)
 * [ ] Snapshot Test cases
 * [ ] SwiftLint
 * [ ] Migration to Swift 5
-* [ ] SwiftUI bridges UIKit <-> SwiftUI
-More UI componentes every month 😈
+* [ ] iOS13 Dark Mode variant.
+* [ ] SwiftUI bridges / UIKit <-> SwiftUI
 
 ### 📋 Supported OS & SDK Versions
 * iOS 10.0+
