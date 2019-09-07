@@ -15,16 +15,18 @@
 		2326FD892316F406005B5089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2326FD872316F406005B5089 /* LaunchScreen.storyboard */; };
 		2393C662231D674A00A47D39 /* LoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C660231D674A00A47D39 /* LoyaltyRingData.swift */; };
 		2393C663231D674A00A47D39 /* DiscountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C661231D674A00A47D39 /* DiscountData.swift */; };
-		2393C677231D68CB00A47D39 /* UICircularRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C669231D68CB00A47D39 /* UICircularRing.swift */; };
-		2393C678231D68CB00A47D39 /* RingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C66A231D68CB00A47D39 /* RingFactory.swift */; };
-		2393C679231D68CB00A47D39 /* String+Hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C66C231D68CB00A47D39 /* String+Hexa.swift */; };
 		2393C67A231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C66F231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift */; };
 		2393C67B231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C670231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift */; };
 		2393C67C231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C672231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift */; };
 		2393C67D231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C673231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift */; };
 		2393C67F231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C675231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift */; };
 		2393C680231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393C676231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift */; };
-		CE4F8304231D7A5C00FAFB8B /* CustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F8303231D7A5C00FAFB8B /* CustomUIImageView.swift */; };
+		23EE40452323FFE0001322EC /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE40442323FFE0001322EC /* UIStyles.swift */; };
+		23EE404A23240077001322EC /* UICircularRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE404823240077001322EC /* UICircularRing.swift */; };
+		23EE404B23240077001322EC /* CustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE404923240077001322EC /* CustomUIImageView.swift */; };
+		23EE404E23240087001322EC /* RingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE404D23240087001322EC /* RingFactory.swift */; };
+		23EE4051232400AC001322EC /* String+Hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE4050232400AC001322EC /* String+Hexa.swift */; };
+		23EE4053232408EC001322EC /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE4052232408EC001322EC /* UIView+Autolayout.swift */; };
 		CE4F8306231DAFDF00FAFB8B /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F8305231DAFDF00FAFB8B /* UIConstants.swift */; };
 		CE4F830823203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F830723203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift */; };
 /* End PBXBuildFile section */
@@ -41,17 +43,19 @@
 		2326FD8A2316F406005B5089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2393C660231D674A00A47D39 /* LoyaltyRingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoyaltyRingData.swift; sourceTree = "<group>"; };
 		2393C661231D674A00A47D39 /* DiscountData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountData.swift; sourceTree = "<group>"; };
-		2393C669231D68CB00A47D39 /* UICircularRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRing.swift; sourceTree = "<group>"; };
-		2393C66A231D68CB00A47D39 /* RingFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingFactory.swift; sourceTree = "<group>"; };
-		2393C66C231D68CB00A47D39 /* String+Hexa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hexa.swift"; sourceTree = "<group>"; };
 		2393C66F231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingData.swift; sourceTree = "<group>"; };
 		2393C670231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessLoyaltyRingView.swift; sourceTree = "<group>"; };
 		2393C672231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItem.swift; sourceTree = "<group>"; };
 		2393C673231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountTableViewCell.swift; sourceTree = "<group>"; };
 		2393C675231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountBoxData.swift; sourceTree = "<group>"; };
 		2393C676231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountBoxView.swift; sourceTree = "<group>"; };
+		23EE40442323FFE0001322EC /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
+		23EE404823240077001322EC /* UICircularRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRing.swift; sourceTree = "<group>"; };
+		23EE404923240077001322EC /* CustomUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIImageView.swift; sourceTree = "<group>"; };
+		23EE404D23240087001322EC /* RingFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingFactory.swift; sourceTree = "<group>"; };
+		23EE4050232400AC001322EC /* String+Hexa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hexa.swift"; sourceTree = "<group>"; };
+		23EE4052232408EC001322EC /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		34CD5ED1D20D0EF0A95C0A69 /* Pods_MLBusinessComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLBusinessComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE4F8303231D7A5C00FAFB8B /* CustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImageView.swift; sourceTree = "<group>"; };
 		CE4F8305231DAFDF00FAFB8B /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		CE4F830723203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBusinessDiscountSingleItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				2393C667231D68CB00A47D39 /* Core */,
-				2393C66B231D68CB00A47D39 /* Extensions */,
 				2393C66D231D68CB00A47D39 /* Components */,
 			);
 			path = Source;
@@ -123,28 +126,13 @@
 		2393C667231D68CB00A47D39 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2393C668231D68CB00A47D39 /* UICircularProgressRing */,
-				2393C66A231D68CB00A47D39 /* RingFactory.swift */,
-				CE4F8303231D7A5C00FAFB8B /* CustomUIImageView.swift */,
+				23EE404F232400AC001322EC /* Extensions */,
+				23EE404623240077001322EC /* CoreComponents */,
+				23EE404C23240087001322EC /* Factories */,
 				CE4F8305231DAFDF00FAFB8B /* UIConstants.swift */,
+				23EE40442323FFE0001322EC /* UIStyles.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		2393C668231D68CB00A47D39 /* UICircularProgressRing */ = {
-			isa = PBXGroup;
-			children = (
-				2393C669231D68CB00A47D39 /* UICircularRing.swift */,
-			);
-			path = UICircularProgressRing;
-			sourceTree = "<group>";
-		};
-		2393C66B231D68CB00A47D39 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2393C66C231D68CB00A47D39 /* String+Hexa.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2393C66D231D68CB00A47D39 /* Components */ = {
@@ -175,6 +163,40 @@
 				CE4F830723203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift */,
 			);
 			path = Discount;
+			sourceTree = "<group>";
+		};
+		23EE404623240077001322EC /* CoreComponents */ = {
+			isa = PBXGroup;
+			children = (
+				23EE404723240077001322EC /* UICircularProgressRing */,
+				23EE404923240077001322EC /* CustomUIImageView.swift */,
+			);
+			path = CoreComponents;
+			sourceTree = "<group>";
+		};
+		23EE404723240077001322EC /* UICircularProgressRing */ = {
+			isa = PBXGroup;
+			children = (
+				23EE404823240077001322EC /* UICircularRing.swift */,
+			);
+			path = UICircularProgressRing;
+			sourceTree = "<group>";
+		};
+		23EE404C23240087001322EC /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				23EE404D23240087001322EC /* RingFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		23EE404F232400AC001322EC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23EE4050232400AC001322EC /* String+Hexa.swift */,
+				23EE4052232408EC001322EC /* UIView+Autolayout.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9115449942B9E25B0F55500E /* Frameworks */ = {
@@ -309,9 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2393C679231D68CB00A47D39 /* String+Hexa.swift in Sources */,
+				23EE404E23240087001322EC /* RingFactory.swift in Sources */,
+				23EE4053232408EC001322EC /* UIView+Autolayout.swift in Sources */,
 				2393C67B231D68CB00A47D39 /* MLBusinessLoyaltyRingView.swift in Sources */,
-				2393C678231D68CB00A47D39 /* RingFactory.swift in Sources */,
 				2326FD812316F405005B5089 /* ExampleViewController.swift in Sources */,
 				2393C680231D68CB00A47D39 /* MLBusinessDiscountBoxView.swift in Sources */,
 				2326FD7F2316F405005B5089 /* AppDelegate.swift in Sources */,
@@ -319,12 +341,14 @@
 				CE4F8306231DAFDF00FAFB8B /* UIConstants.swift in Sources */,
 				2393C67D231D68CB00A47D39 /* MLBusinessDiscountTableViewCell.swift in Sources */,
 				2393C67C231D68CB00A47D39 /* MLBusinessDiscountSingleItem.swift in Sources */,
+				23EE404B23240077001322EC /* CustomUIImageView.swift in Sources */,
 				CE4F830823203F0200FAFB8B /* MLBusinessDiscountSingleItemView.swift in Sources */,
 				2393C67F231D68CB00A47D39 /* MLBusinessDiscountBoxData.swift in Sources */,
-				CE4F8304231D7A5C00FAFB8B /* CustomUIImageView.swift in Sources */,
-				2393C677231D68CB00A47D39 /* UICircularRing.swift in Sources */,
+				23EE40452323FFE0001322EC /* UIStyles.swift in Sources */,
 				2393C662231D674A00A47D39 /* LoyaltyRingData.swift in Sources */,
+				23EE404A23240077001322EC /* UICircularRing.swift in Sources */,
 				2393C67A231D68CB00A47D39 /* MLBusinessLoyaltyRingData.swift in Sources */,
+				23EE4051232400AC001322EC /* String+Hexa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

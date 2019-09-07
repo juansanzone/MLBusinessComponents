@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MLUI
 
-protocol MLBusinessUserInteractionProtocol: NSObjectProtocol {
+internal protocol MLBusinessUserInteractionProtocol: NSObjectProtocol {
     func didTap(item: MLBusinessDiscountSingleItem)
 }
 
@@ -38,8 +38,8 @@ extension MLBusinessDiscountSingleItemView {
     private func render() {
         self.backgroundColor = .white
         let icon: CustomUIImageView = CustomUIImageView()
+        icon.prepareForAutolayout(.clear)
         icon.loadImage(url: discountSingleItem.iconImageUrl, placeholder: nil, placeHolderRadius: iconImageSize/2)
-        icon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(icon)
         icon.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
@@ -50,7 +50,7 @@ extension MLBusinessDiscountSingleItemView {
         ])
 
         let itemTitle = UILabel()
-        itemTitle.translatesAutoresizingMaskIntoConstraints = false
+        itemTitle.prepareForAutolayout(.clear)
         self.addSubview(itemTitle)
         itemTitle.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XXS_FONT)
         itemTitle.applyBusinessLabelStyle()
@@ -64,7 +64,7 @@ extension MLBusinessDiscountSingleItemView {
         ])
 
         let itemSubtitle = UILabel()
-        itemSubtitle.translatesAutoresizingMaskIntoConstraints = false
+        itemSubtitle.prepareForAutolayout(.clear)
         self.addSubview(itemSubtitle)
         itemSubtitle.font = UIFont.ml_semiboldSystemFont(ofSize: UI.FontSize.M_FONT)
         itemSubtitle.applyBusinessLabelStyle()

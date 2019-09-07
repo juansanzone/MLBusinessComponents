@@ -32,9 +32,3 @@ struct UI {
         static let mainLabelColor: UIColor = UIColor(red:0, green:0, blue:0, alpha:0.8)
     }
 }
-
-internal extension UILabel {
-    func applyBusinessLabelStyle() {
-        self.textColor = UI.Colors.mainLabelColor
-    }
-}

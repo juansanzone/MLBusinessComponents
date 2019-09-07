@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol UICircularProgressRingDelegate: class {
+protocol UICircularProgressRingDelegate: class {
     func didFinishProgress(for ring: UICircularProgressRing)
     func didPauseProgress(for ring: UICircularProgressRing)
     func didContinueProgress(for ring: UICircularProgressRing)
@@ -9,84 +9,84 @@ public protocol UICircularProgressRingDelegate: class {
 }
 
 // MARK: UICircularRing
-open class UICircularRing: UIView {
-    open var fullCircle: Bool = true {
+class UICircularRing: UIView {
+    var fullCircle: Bool = true {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var style: UICircularRingStyle = .inside {
+    var style: UICircularRingStyle = .inside {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var gradientOptions: UICircularRingGradientOptions? = nil {
+    var gradientOptions: UICircularRingGradientOptions? = nil {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    public var shouldShowValueText: Bool = true {
+    var shouldShowValueText: Bool = true {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var valueKnobStyle: UICircularRingValueKnobStyle? {
+    var valueKnobStyle: UICircularRingValueKnobStyle? {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var startAngle: CGFloat = 0 {
+    var startAngle: CGFloat = 0 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var endAngle: CGFloat = 360 {
+    var endAngle: CGFloat = 360 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var outerRingWidth: CGFloat = 10.0 {
+    var outerRingWidth: CGFloat = 10.0 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var outerRingColor: UIColor = UIColor.gray {
+    var outerRingColor: UIColor = UIColor.gray {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var outerCapStyle: CGLineCap = .butt {
+    var outerCapStyle: CGLineCap = .butt {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var innerRingWidth: CGFloat = 5.0 {
+    var innerRingWidth: CGFloat = 5.0 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var innerRingColor: UIColor = UIColor.blue {
+    var innerRingColor: UIColor = UIColor.blue {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var innerRingSpacing: CGFloat = 1 {
+    var innerRingSpacing: CGFloat = 1 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var innerCapStyle: CGLineCap = .round {
+    var innerCapStyle: CGLineCap = .round {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var fontColor: UIColor = UIColor.black {
+    var fontColor: UIColor = UIColor.black {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var innerCenterText: String? {
+    var innerCenterText: String? {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var font: UIFont = UIFont.ml_semiboldSystemFont(ofSize: 28) {
+    var font: UIFont = UIFont.ml_semiboldSystemFont(ofSize: 28) {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    open var isAnimating: Bool {
+    var isAnimating: Bool {
         return ringLayer.animation(forKey: .value) != nil
     }
 
-    open var isClockwise: Bool = true {
+    var isClockwise: Bool = true {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
-    public typealias PropertyAnimationCompletion = (() -> Void)
+    typealias PropertyAnimationCompletion = (() -> Void)
 
     var ringLayer: UICircularRingLayer {
         return layer as! UICircularRingLayer
@@ -102,16 +102,16 @@ open class UICircularRing: UIView {
 
     typealias AnimationCompletion = () -> Void
 
-    override open class var layerClass: AnyClass {
+    override class var layerClass: AnyClass {
         return UICircularRingLayer.self
     }
 
-    override public init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -138,7 +138,7 @@ open class UICircularRing: UIView {
                                                object: nil)
     }
 
-    open override func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         super.draw(rect)
     }
 
@@ -166,12 +166,6 @@ open class UICircularRing: UIView {
 
     func pauseAnimation() {
         guard isAnimating else {
-            #if DEBUG
-            print("""
-                    UICircularProgressRing: Progress was paused without having been started.
-                    This has no effect but may indicate that you're unnecessarily calling this method.
-                    """)
-            #endif
             return
         }
 
@@ -195,12 +189,6 @@ open class UICircularRing: UIView {
 
     func continueAnimation(completion: @escaping AnimationCompletion) {
         guard let pauseTime = animationPauseTime else {
-            #if DEBUG
-            print("""
-                    UICircularRing: Progress was continued without having been paused.
-                    This has no effect but may indicate that you're unnecessarily calling this method.
-                    """)
-            #endif
             return
         }
 
@@ -235,17 +223,16 @@ open class UICircularRing: UIView {
 
     }
 
-    open func animateProperties(duration: TimeInterval, animations: () -> Void) {
+    func animateProperties(duration: TimeInterval, animations: () -> Void) {
         animateProperties(duration: duration, animations: animations, completion: nil)
     }
 
-    open func animateProperties(duration: TimeInterval, animations: () -> Void,
+    func animateProperties(duration: TimeInterval, animations: () -> Void,
                                 completion: PropertyAnimationCompletion? = nil) {
         ringLayer.shouldAnimateProperties = true
         ringLayer.propertyAnimationDuration = duration
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            // Reset and call completion
             self.ringLayer.shouldAnimateProperties = false
             self.ringLayer.propertyAnimationDuration = 0.0
             completion?()
@@ -276,21 +263,13 @@ extension UICircularRing {
 }
 
 // MARK: UICircularProgressRing
-final public class UICircularProgressRing: UICircularRing {
-    public weak var delegate: UICircularProgressRingDelegate?
-    public var value: CGFloat = 0 {
+final class UICircularProgressRing: UICircularRing {
+    weak var delegate: UICircularProgressRingDelegate?
+    var value: CGFloat = 0 {
         didSet {
             if value < minValue {
-                #if DEBUG
-                print("Warning in: \(#file):\(#line)")
-                print("Attempted to set a value less than minValue, value has been set to minValue.\n")
-                #endif
                 ringLayer.value = minValue
             } else if value > maxValue {
-                #if DEBUG
-                print("Warning in: \(#file):\(#line)")
-                print("Attempted to set a value greater than maxValue, value has been set to maxValue.\n")
-                #endif
                 ringLayer.value = maxValue
             } else {
                 ringLayer.value = value
@@ -298,30 +277,30 @@ final public class UICircularProgressRing: UICircularRing {
         }
     }
 
-    public var currentValue: CGFloat? {
+    var currentValue: CGFloat? {
         return isAnimating ? layer.presentation()?.value(forKey: .value) as? CGFloat : value
     }
 
-    public var minValue: CGFloat = 0.0 {
+    var minValue: CGFloat = 0.0 {
         didSet { ringLayer.minValue = minValue }
     }
 
-    public var maxValue: CGFloat = 100.0 {
+    var maxValue: CGFloat = 100.0 {
         didSet { ringLayer.maxValue = maxValue }
     }
 
-    public var animationTimingFunction: CAMediaTimingFunctionName = .easeInEaseOut {
+    var animationTimingFunction: CAMediaTimingFunctionName = .easeInEaseOut {
         didSet { ringLayer.animationTimingFunction = animationTimingFunction }
     }
 
-    public var valueFormatter: UICircularRingValueFormatter = UICircularProgressRingFormatter() {
+    var valueFormatter: UICircularRingValueFormatter = UICircularProgressRingFormatter() {
         didSet { ringLayer.valueFormatter = valueFormatter }
     }
 
-    public typealias ProgressCompletion = (() -> Void)
+    typealias ProgressCompletion = (() -> Void)
     private var completion: ProgressCompletion?
 
-    public func startProgress(to value: CGFloat, duration: TimeInterval, completion: ProgressCompletion? = nil) {
+    func startProgress(to value: CGFloat, duration: TimeInterval, completion: ProgressCompletion? = nil) {
         // Store the completion event locally
         self.completion = completion
 
@@ -334,13 +313,13 @@ final public class UICircularProgressRing: UICircularRing {
         self.value = value
     }
 
-    public func pauseProgress() {
+    func pauseProgress() {
         // call super class helper to stop layer animation
         pauseAnimation()
         delegate?.didPauseProgress(for: self)
     }
 
-    public func continueProgress() {
+    func continueProgress() {
         // call super class helper to continue layer animation
         continueAnimation {
             self.delegate?.didFinishProgress(for: self)
@@ -349,7 +328,7 @@ final public class UICircularProgressRing: UICircularRing {
         delegate?.didContinueProgress(for: self)
     }
 
-    public func resetProgress() {
+    func resetProgress() {
         // call super class helper to reset animation layer
         resetAnimation()
         value = minValue
@@ -378,7 +357,7 @@ final public class UICircularProgressRing: UICircularRing {
 }
 
 // MARK: Extensions
-extension CALayer {
+internal extension CALayer {
     func removeAnimation(forKey key: UICircularRing.AnimationKeys) {
         removeAnimation(forKey: key.rawValue)
     }
@@ -392,15 +371,15 @@ extension CALayer {
     }
 }
 
-extension CGFloat {
+internal extension CGFloat {
     var rads: CGFloat { return self * CGFloat.pi / 180 }
 }
 
-extension TimeInterval {
+internal extension TimeInterval {
     var float: CGFloat { return CGFloat(self) }
 }
 
-extension CGFloat {
+internal extension CGFloat {
     var interval: TimeInterval { return TimeInterval(self) }
 }
 
@@ -777,9 +756,9 @@ class UICircularRingLayer: CAShapeLayer {
 }
 
 // MARK: UICircularTimerRing
-final public class UICircularTimerRing: UICircularRing {
+final class UICircularTimerRing: UICircularRing {
 
-    public var valueFormatter: UICircularRingValueFormatter = UICircularTimerRingFormatter() {
+    var valueFormatter: UICircularRingValueFormatter = UICircularTimerRingFormatter() {
         didSet { ringLayer.valueFormatter = valueFormatter }
     }
 
@@ -790,7 +769,7 @@ final public class UICircularTimerRing: UICircularRing {
      If the timer is paused handler will be called with (false, elapsedTime)
      Otherwise the handler will be called with (true, finalTime)
      */
-    public typealias TimerHandler = (State) -> Void
+    typealias TimerHandler = (State) -> Void
 
     // MARK: Private Members
 
@@ -816,7 +795,7 @@ final public class UICircularTimerRing: UICircularRing {
      - endtime: the time at which the timer will end, the animation duration will be `endTime - startTime`.
      - handler: the handler which is called and updated depending on the state of the timer.
      */
-    public func startTimer(from startTime: TimeInterval = 0.0, to endTime: TimeInterval, handler: TimerHandler?) {
+    func startTimer(from startTime: TimeInterval = 0.0, to endTime: TimeInterval, handler: TimerHandler?) {
         // begin animation to start time, this should be done instantly thus 0 duration
         startAnimation(duration: 0) {
             // begin animation to end time, this is done with difference in endTime and startTime
@@ -843,7 +822,7 @@ final public class UICircularTimerRing: UICircularRing {
 
      Handler will be called with (false, elapsedTime)
      */
-    public func pauseTimer() {
+    func pauseTimer() {
         timerHandler?(.paused(elpasedTime: elapsedTime))
         pauseAnimation()
     }
@@ -851,7 +830,7 @@ final public class UICircularTimerRing: UICircularRing {
     /**
      Continues the timer from a previously paused time.
      */
-    public func continueTimer() {
+    func continueTimer() {
         self.timerHandler?(.continued(elapsedTime: elapsedTime))
         continueAnimation {
             self.timerHandler?(.finished)
@@ -862,7 +841,7 @@ final public class UICircularTimerRing: UICircularRing {
      Resets the timer, this means the time is reset and
      previously set handler will no longer be used.
      */
-    public func resetTimer() {
+    func resetTimer() {
         resetAnimation()
         ringLayer.value = 0
         timerHandler = nil
@@ -883,7 +862,7 @@ final public class UICircularTimerRing: UICircularRing {
 }
 
 // MARK: UICircularTimerRing.State
-public extension UICircularTimerRing {
+extension UICircularTimerRing {
     /// state of the timer ring, used in handler
     enum State {
         /// the timer has finished
@@ -898,7 +877,7 @@ public extension UICircularTimerRing {
 }
 
 // MARK: UICircularRingStyle
-public enum UICircularRingStyle {
+internal enum UICircularRingStyle {
     /// inner ring is inside the circle
     case inside
     /// inner ring is placed ontop of the outer ring
@@ -911,21 +890,21 @@ public enum UICircularRingStyle {
     case bordered(width: CGFloat, color: UIColor)
 }
 
-public struct UICircularRingValueKnobStyle {
+struct UICircularRingValueKnobStyle {
     /// default implmementation of the knob style
-    public static let `default` = UICircularRingValueKnobStyle(size: 15.0, color: .lightGray)
+    static let `default` = UICircularRingValueKnobStyle(size: 15.0, color: .lightGray)
     /// the size of the knob
-    public let size: CGFloat
+    let size: CGFloat
     /// the color of the knob
-    public let color: UIColor
+    let color: UIColor
     /// the amount of blur to give the shadow
-    public let shadowBlur: CGFloat
+    let shadowBlur: CGFloat
     /// the offset to give the shadow
-    public let shadowOffset: CGSize
+    let shadowOffset: CGSize
     /// the color for the shadow
-    public let shadowColor: UIColor
+    let shadowColor: UIColor
     /// creates a new `UICircularRingValueKnobStyle`
-    public init(size: CGFloat,
+    init(size: CGFloat,
                 color: UIColor,
                 shadowBlur: CGFloat = 2.0,
                 shadowOffset: CGSize = .zero,
@@ -939,7 +918,7 @@ public struct UICircularRingValueKnobStyle {
 }
 
 // MARK: UICircularRingGradientPosition
-public enum UICircularRingGradientPosition {
+internal enum UICircularRingGradientPosition {
     /// Gradient positioned at the top
     case top
     /// Gradient positioned at the bottom
@@ -984,23 +963,23 @@ public enum UICircularRingGradientPosition {
 }
 
 // MARK: UICircularRingGradientOptions
-public struct UICircularRingGradientOptions {
+struct UICircularRingGradientOptions {
 
     /// a default styling option for the gradient style
-    public static let `default` = UICircularRingGradientOptions(startPosition: .topRight,
+    static let `default` = UICircularRingGradientOptions(startPosition: .topRight,
                                                                 endPosition: .bottomLeft,
                                                                 colors: [.red, .blue],
                                                                 colorLocations: [0, 1])
     /// the start location for the gradient
-    public let startPosition: UICircularRingGradientPosition
+    let startPosition: UICircularRingGradientPosition
     /// the end location for the gradient
-    public let endPosition: UICircularRingGradientPosition
+    let endPosition: UICircularRingGradientPosition
     /// the colors to use in the gradient, the count of this list must match the count of `colorLocations`
-    public let colors: [UIColor]
+    let colors: [UIColor]
     /// the locations of where to place the colors, valid numbers are from 0.0 - 1.0
-    public let colorLocations: [CGFloat]
+    let colorLocations: [CGFloat]
     /// create a new UICircularRingGradientOptions
-    public init(startPosition: UICircularRingGradientPosition,
+    init(startPosition: UICircularRingGradientPosition,
                 endPosition: UICircularRingGradientPosition,
                 colors: [UIColor],
                 colorLocations: [CGFloat]) {
@@ -1018,7 +997,7 @@ public struct UICircularRingGradientOptions {
  Any custom formatter must conform to this protocol.
 
  */
-public protocol UICircularRingValueFormatter {
+protocol UICircularRingValueFormatter {
     /// returns a string for the given object
     func string(for value: Any) -> String?
 }
@@ -1030,14 +1009,14 @@ public protocol UICircularRingValueFormatter {
  The formatter used in UICircularTimerRing class, formats
  the ring value into a time string.
  */
-public struct UICircularTimerRingFormatter: UICircularRingValueFormatter {
+struct UICircularTimerRingFormatter: UICircularRingValueFormatter {
     // MARK: Members
     /// defines the units allowed to be used when converting string, by default `[.minute, .second]`
-    public var units: NSCalendar.Unit {
+    var units: NSCalendar.Unit {
         didSet { formatter.allowedUnits = units }
     }
     /// the style of the formatted string, by default `.short`
-    public var style: DateComponentsFormatter.UnitsStyle {
+    var style: DateComponentsFormatter.UnitsStyle {
         didSet { formatter.unitsStyle = style }
     }
     /// formatter which formats the time string of the ring label
@@ -1049,7 +1028,7 @@ public struct UICircularTimerRingFormatter: UICircularRingValueFormatter {
     }
 
     // MARK: Init
-    public init(units: NSCalendar.Unit = [.minute, .second],
+    init(units: NSCalendar.Unit = [.minute, .second],
                 style: DateComponentsFormatter.UnitsStyle = .short) {
         self.units = units
         self.style = style
@@ -1057,7 +1036,7 @@ public struct UICircularTimerRingFormatter: UICircularRingValueFormatter {
 
     // MARK: API
     /// formats the value of the ring using the date components formatter with given units/style
-    public func string(for value: Any) -> String? {
+    func string(for value: Any) -> String? {
         guard let value = value as? CGFloat else { return nil }
         return formatter.string(from: value.interval)
     }
@@ -1070,7 +1049,7 @@ public struct UICircularTimerRingFormatter: UICircularRingValueFormatter {
  The formatter used in UICircularProgressRing class,
  responsible for formatting the value of the ring into a readable string
  */
-public struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
+struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
     // MARK: Members
     /**
      The name of the value indicator the value label will
@@ -1083,7 +1062,7 @@ public struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
      ## Author
      Luis Padron
      */
-    public var valueIndicator: String
+    var valueIndicator: String
 
     /**
      A toggle for either placing the value indicator right or left to the value
@@ -1095,7 +1074,7 @@ public struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
      ## Author
      Elad Hayun
      */
-    public var rightToLeft: Bool
+    var rightToLeft: Bool
 
     /**
      A toggle for showing or hiding floating points from
@@ -1109,7 +1088,7 @@ public struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
      ## Author
      Luis Padron
      */
-    public var showFloatingPoint: Bool
+    var showFloatingPoint: Bool
 
     /**
      The amount of decimal places to show in the value label
@@ -1122,10 +1101,10 @@ public struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
      ## Author
      Luis Padron
      */
-    public var decimalPlaces: Int
+    var decimalPlaces: Int
 
     // MARK: Init
-    public init(valueIndicator: String = "%",
+    init(valueIndicator: String = "%",
                 rightToLeft: Bool = false,
                 showFloatingPoint: Bool = false,
                 decimalPlaces: Int = 2) {
@@ -1137,7 +1116,7 @@ public struct UICircularProgressRingFormatter: UICircularRingValueFormatter {
 
     // MARK: API
     /// formats the value of the progress ring using the given properties
-    public func string(for value: Any) -> String? {
+    func string(for value: Any) -> String? {
         guard let value = value as? CGFloat else { return nil }
 
         if rightToLeft {
