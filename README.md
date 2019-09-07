@@ -23,31 +23,20 @@ pod 'MLBusinessComponents'
 ```
 
 ## 🐒 How to use
-Only **3** steps needed to create a basic checkout using `MercadopagoSDK`:
 
-### 1 - Import into project
+### 1 - Import into project.
 ```swift
-import MercadoPagoSDK
+import MLBusinessComponents
 ```
 
-### 2 - Set your  `PublicKey`  and  `PreferenceId` 
-```swift
-let checkout = MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id"))
-```
+### 2 - Use your UI component.
+Choose and initialize the componentes. Each component is a subclass of UIView.
 
-### 3 - Start
-```swift
-checkout.start(navigationController: self.navigationController)
-```
 
-## 💪 One line integration
+## 👔 UI COMPONENTS
 ```swift
 MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id")).start(navigationController: self.navigationController)
 ```
-
-## 💡Advanced integration
-Check our official code <a href="http://mercadopago.github.io/px-ios/v4/" target="_blank"> reference </a>, especially <a href="http://mercadopago.github.io/px-ios/v4/Classes/MercadoPagoCheckoutBuilder.html" target="_blank"> MercadoPagoCheckoutBuilder </a> object to explore all available functionalities.
-
 
 ## 🎨 UI Custom Colors
 ### Basic color customization
@@ -110,6 +99,15 @@ func trackEvent(screenName: String?, action: String!, result: String?, extraPara
 PXTracker.setListener(self)
 ```
 
+### 😉 Next steps?
+* [ ] Bitrise for releases
+* [ ] Codebeat integration
+* [ ] Snapshot Test cases
+* [ ] SwiftLint
+* [ ] Migration to Swift 5
+* [ ] SwiftUI bridges UIKit <-> SwiftUI
+More UI componentes every month 😈
+
 ### 📋 Supported OS & SDK Versions
 * iOS 10.0+
 * Swift 4.2
@@ -117,7 +115,7 @@ PXTracker.setListener(self)
 * @Objc full compatibility
 
 ### 🔮 Project Example
-This project include a Swift example project using MLBusinessComponents basic components.
+This project include a Swift example project using `MLBusinessComponents` basic components.
 
 ### 📚 Full Documentation
 + [Advanced full documentation](http://TBD)
@@ -127,7 +125,8 @@ Feel free to contribute or send feedback.
 Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
 
 ## 👨🏻‍💻 Author
-
+Juan Sanzone / @juansanzone
+Esteban Boffa / @eboffa
 
 ## 👮🏻 License
 
