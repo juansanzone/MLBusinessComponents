@@ -9,10 +9,10 @@
 import UIKit
 
 @objc public protocol MLBusinessLoyaltyRingData: NSObjectProtocol {
-    func getRingHexaColor() -> String
-    func getRingNumber() -> Int
-    func getRingPercentage() -> Float
-    func getTitle() -> String
-    func getButtonTitle() -> String
-    func getButtonDeepLink() -> String
+    @objc func getRingHexaColor() -> String
+    @objc func getRingNumber() -> Int
+    @objc func getRingPercentage() -> Float
+    @objc func getTitle() -> String
+    @objc func getButtonTitle() -> String
+    @objc func getButtonDeepLink() -> String
 }
