@@ -40,7 +40,7 @@ Each component is a subclass of UIView.
 This component will allow you to show the progress ring of points, a label and an actionable button. The most common use of this component is to show a user's progress within the loyalty program.
 
 ### MLBusinessLoyaltyRingView init
-You need to set `MLBusinessLoyaltyRingData` protocol (interfase). This protocol allow you to populate the draw data into component. (Ring progress percent, ring color, label text and button title).
+You need to set `MLBusinessLoyaltyRingData` protocol (interfase). This protocol allow you to populate the draw data into component. (Ring progress percent, ring color, label text, button title and button deeplink).
 ```swift
 let ringView = MLBusinessLoyaltyRingView(_ ringViewData: MLBusinessLoyaltyRingData)
 view.addSubView(ringView)
@@ -57,7 +57,7 @@ NSLayoutConstraint.activate([
 ```
 
 ### MLBusinessLoyaltyRingData Protocol
-This protocol allow you to providade the proper data to draw `MLBusinessLoyaltyRingView`. You can setup ring progress percent, ring color, label text and button title). Each value is mandatory.
+This protocol allow you to providade the proper data to draw `MLBusinessLoyaltyRingView`. You can setup ring progress percent, ring color, label text, button title and button deeplink). Each value is mandatory.
 
 #### Definition
 ```swift
@@ -98,6 +98,18 @@ class MyDrawDataForRingView: NSObject, MLBusinessLoyaltyRingData {
     func getButtonDeepLink() -> String {
         return "mercadopago://beneficios"
     }
+}
+```
+
+### How to receive tap action and button deeplink?
+You can be informed when the user presses the button of the component and receive the deeplink previously sent in `MLBusinessLoyaltyRingData`. Just add tapAction callback.
+```swift
+let ringView = MLBusinessLoyaltyRingView(MyDrawDataForRingView())
+view.addSubView(ringView)
+
+// Add tap action and receive the deepLink
+ringView.addTapAction { deepLink in
+    print(deepLink)
 }
 ```
 
