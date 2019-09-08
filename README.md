@@ -56,6 +56,50 @@ NSLayoutConstraint.activate([
 ])
 ```
 
+### MLBusinessLoyaltyRingData Protocol
+This protocol allow you to providade the proper data to draw `MLBusinessLoyaltyRingView`. You can setup ring progress percent, ring color, label text and button title). Each value is mandatory.
+
+#### Definition
+```swift
+@objc public protocol MLBusinessLoyaltyRingData: NSObjectProtocol {
+    @objc func getRingHexaColor() -> String
+    @objc func getRingNumber() -> Int
+    @objc func getRingPercentage() -> Float
+    @objc func getTitle() -> String
+    @objc func getButtonTitle() -> String
+    @objc func getButtonDeepLink() -> String
+}
+```
+
+#### Implementation Example
+Implementation of `MLBusinessLoyaltyRingData` example:
+```swift
+class MyDrawDataForRingView: NSObject, MLBusinessLoyaltyRingData {
+    func getRingNumber() -> Int {
+        return 3
+    }
+
+    func getRingHexaColor() -> String {
+        return "#17aad6"
+    }
+
+    func getRingPercentage() -> Float {
+        return 0.80
+    }
+
+    func getTitle() -> String {
+        return "Ganaste 100 Mercado Puntos"
+    }
+
+    func getButtonTitle() -> String {
+        return "Mis beneficios"
+    }
+
+    func getButtonDeepLink() -> String {
+        return "mercadopago://beneficios"
+    }
+}
+```
 
 ### Basic color customization
 You can define one color (your main color) and we will take care of the rest. Delivering the best Checkout experience based on your color.
