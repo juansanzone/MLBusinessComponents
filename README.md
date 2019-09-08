@@ -38,7 +38,18 @@ Choose and initialize the components. Each component is a subclass of UIView.
 MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id")).start(navigationController: self.navigationController)
 ```
 
-## 🎨 Loyalty Ring Box
+## MLBusinessLoyaltyRingView
+This component will allow you to show the progress ring of points, a label and an actionable button. The most common use of this component is to show a user's progress within the loyalty program.
+
+### MLBusinessLoyaltyRingView init
+You need to set `MLBusinessLoyaltyRingData` protocol (interfase). This protocol allow you to populate the data into component. (Ring progress, label and button action label).
+```swift
+let ringView = MLBusinessLoyaltyRingView(_ ringViewData: MLBusinessLoyaltyRingData)
+
+// 
+```
+
+
 ### Basic color customization
 You can define one color (your main color) and we will take care of the rest. Delivering the best Checkout experience based on your color.
 ```swift
