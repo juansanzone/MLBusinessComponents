@@ -38,6 +38,7 @@ Each component is a subclass of UIView.
 
 ## MLBusinessLoyaltyRingView Component
 This component will allow you to show the progress ring of points, a label and an actionable button. The most common use of this component is to show a user's progress within the loyalty program.
+![MLBusinessLoyaltyRingView](https://github.com/juansanzone/MLBusinessComponents/blob/refactor/Documentation/images/loyaltyRingViewComponent.png?raw=true)
 
 ### MLBusinessLoyaltyRingView init
 You need to set `MLBusinessLoyaltyRingData` protocol (interfase). This protocol allow you to populate the draw data into component. (Ring progress percent, ring color, label text, button title and button deeplink).
