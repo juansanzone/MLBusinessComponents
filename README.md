@@ -33,12 +33,12 @@ import MLBusinessComponents
 Choose and initialize the components. Each component is a subclass of UIView.
 
 
-## 👔 UI COMPONENTS
+# 📦 COMPONENTS
 ```swift
 MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id")).start(navigationController: self.navigationController)
 ```
 
-## 🎨 UI Custom Colors
+## 🎨 Loyalty Ring Box
 ### Basic color customization
 You can define one color (your main color) and we will take care of the rest. Delivering the best Checkout experience based on your color.
 ```swift
