@@ -37,7 +37,7 @@ Choose and instantiate your component.
 Each component is a subclass of UIView.
 
 ## 1️⃣ - MLBusinessLoyaltyRingView Component
-This component will allow you to show the progress ring of points, a label and an actionable button. The most common use of this component is to show a user's progress within the loyalty program.
+This component allow you to show the progress ring of points, a label and actionable button. The most common use of this component is to show a user's progress within the loyalty program.
 #### Visual Example:
 ![MLBusinessLoyaltyRingView](https://github.com/juansanzone/MLBusinessComponents/blob/refactor/Documentation/images/loyaltyRingViewComponent.png?raw=true)
 
@@ -116,7 +116,7 @@ ringView.addTapAction { deepLink in
 ```
 
 ## 2️⃣ - MLBusinessDiscountBoxView Component
-This component will allow you to show the progress ring of points, a label and an actionable button. The most common use of this component is to show a user's progress within the loyalty program.
+This component allow you to show a group of N items in a grid system (3 cols by default). You can add a title and subtitle for the main component. Also, you can provide imageUrl, title and subtitle for each item.
 #### Visual Example:
 ![MLBusinessDiscountBoxView](https://github.com/juansanzone/MLBusinessComponents/blob/refactor/Documentation/images/discountBoxViewComponent.png?raw=true)
 
