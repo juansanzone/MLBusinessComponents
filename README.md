@@ -122,12 +122,8 @@ This component will allow you to show the progress ring of points, a label and a
 
 
 ## 🔠 Font and color customization.
-You can set your custom Font by `PXTheme` protocol. Implement the following 3 optional methods:
-```swift
-@objc optional func fontName() -> String?
-@objc optional func lightFontName() -> String?
-@objc optional func semiBoldFontName() -> String?
-```
+We use `MLUI` open source library to customize accent colors and font labels. In order to change those values check the documentation of `MLUI` stylesheet protocol.
+https://github.com/mercadolibre/fury_mobile-ios-ui
 
 ## 😉 Next steps?
 * [ ] Bitrise for releases.
