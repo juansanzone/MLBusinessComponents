@@ -46,8 +46,8 @@ let ringView = MLBusinessLoyaltyRingView(_ ringViewData: MLBusinessLoyaltyRingDa
 view.addSubView(ringView)
 
 /* 
-Set your constraints. You don't need to set up the HEIGHT contraint. 
-Because this component is responsible for knowing and setting your own HEIGHT.
+    Set your constraints. You don't need to set up the HEIGHT contraint. 
+    Because this component is responsible for knowing and setting your own HEIGHT.
 */
 NSLayoutConstraint.activate([
     ringView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
