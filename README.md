@@ -152,8 +152,8 @@ This project include a Swift example project using `MLBusinessComponents` basic 
 - Feel free to contribute or send feedback. Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
 
 ## 👨🏻‍💻 Author
-- Juan Sanzone / @juansanzone
-- Esteban Boffa / @eboffa
+- Juan Sanzone / juan.sanzone@mercadolibre.com
+- Esteban Boffa / esteban.boffa@mercadolibre.com
 
 ## 👮🏻 License
 
