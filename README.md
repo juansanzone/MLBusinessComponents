@@ -30,23 +30,30 @@ import MLBusinessComponents
 ```
 
 ### 2 - Use your UI component.
-Choose and initialize the components. Each component is a subclass of UIView.
+Choose and instantiate your component.
 
 
 # 📦 COMPONENTS
-```swift
-MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id")).start(navigationController: self.navigationController)
-```
+Each component is a subclass of UIView.
 
-## MLBusinessLoyaltyRingView
+## MLBusinessLoyaltyRingView Component
 This component will allow you to show the progress ring of points, a label and an actionable button. The most common use of this component is to show a user's progress within the loyalty program.
 
 ### MLBusinessLoyaltyRingView init
-You need to set `MLBusinessLoyaltyRingData` protocol (interfase). This protocol allow you to populate the data into component. (Ring progress, label and button action label).
+You need to set `MLBusinessLoyaltyRingData` protocol (interfase). This protocol allow you to populate the draw data into component. (Ring progress percent, ring color, label text and button title).
 ```swift
 let ringView = MLBusinessLoyaltyRingView(_ ringViewData: MLBusinessLoyaltyRingData)
+view.addSubView(ringView)
 
-// 
+/* 
+Set your constraints. You don't need to set up the HEIGHT contraint. 
+Because this component is responsible for knowing and setting your own HEIGHT.
+*/
+NSLayoutConstraint.activate([
+    ringView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+    ringView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+    ringView.topAnchor.constraint(equalTo: view.topAnchor)
+])
 ```
 
 
