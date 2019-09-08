@@ -12,7 +12,7 @@
 </a>
 </p>
 
-## 📲 How to Install
+# 📲 How to Install
 
 #### Using [CocoaPods](https://cocoapods.org)
 
@@ -22,7 +22,7 @@ Edit your `Podfile` and specify the dependency:
 pod 'MLBusinessComponents'
 ```
 
-## 🐒 How to use
+# 🐒 How to use
 
 ### 1 - Import into project.
 ```swift
