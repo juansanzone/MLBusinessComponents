@@ -115,43 +115,7 @@ ringView.addTapAction { deepLink in
 }
 ```
 
-### Basic color customization
-You can define one color (your main color) and we will take care of the rest. Delivering the best Checkout experience based on your color.
-```swift
-checkoutBuilder.setColor(checkoutColor: UIColor.purple)
-```
-
-### Advanced color customization
-If you need an advanced color customization, you can customize your colors through our `PXTheme` interface/protocol. Check the  <a href="http://mercadopago.github.io/px-ios/v4/Protocols/PXTheme.html" target="_blank"> `PXTheme` methods in our reference guide. </a>
-
-The following example implements the protocol `PXTheme` to customize the UI with Mercadolibre style:
-```swift
-final class ExampleTheme: PXTheme {
-let primaryColor: UIColor = #colorLiteral(red: 1, green: 0.9176470588, blue: 0.4705882353, alpha: 1)
-
-public func navigationBar() -> PXThemeProperty {
-return PXThemeProperty(backgroundColor: primaryColor, tintColor: #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1))
-}
-
-public func loadingComponent() -> PXThemeProperty {
-return PXThemeProperty(backgroundColor: primaryColor, tintColor: #colorLiteral(red: 0.2039215686, green: 0.5137254902, blue: 0.9803921569, alpha: 1))
-}
-
-public func highlightBackgroundColor() -> UIColor {
-return primaryColor
-}
-
-public func detailedBackgroundColor() -> UIColor {
-return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-}
-
-public func statusBarStyle() -> UIStatusBarStyle {
-return .default
-}
-}
-```
-
-## 🔠 Custom Fonts
+## 🔠 Font and color customization.
 You can set your custom Font by `PXTheme` protocol. Implement the following 3 optional methods:
 ```swift
 @objc optional func fontName() -> String?
@@ -159,23 +123,7 @@ You can set your custom Font by `PXTheme` protocol. Implement the following 3 op
 @objc optional func semiBoldFontName() -> String?
 ```
 
-## 📈 Tracking
-We provide `PXTrackerListener` protocol to notify each tracking event. You can subscribe to this protocol using `PXTracker`.
-
-### Implement PXTrackerListener protocol.
-```swift
-@objc public protocol PXTrackerListener: NSObjectProtocol {
-func trackScreen(screenName: String, extraParams: [String: Any]?)
-func trackEvent(screenName: String?, action: String!, result: String?, extraParams: [String: Any]?)
-}
-```
-
-### Set listener
-```swift
-PXTracker.setListener(self)
-```
-
-### 😉 Next steps?
+## 😉 Next steps?
 * [ ] Bitrise for releases.
 * [ ] Codebeat integration.
 * [ ] Snapshot Test cases.
@@ -185,13 +133,13 @@ PXTracker.setListener(self)
 * [ ] Swift package manager support.
 * [ ] SwiftUI bridges / UIKit <-> SwiftUI.
 
-### 📋 Supported OS & SDK Versions
+## 📋 Supported OS & SDK Versions
 * iOS 10.0+
 * Swift 4.2
 * xCode 9.2+
 * @Objc full compatibility
 
-### 🔮 Project Example
+## 🔮 Project Example
 This project include a Swift example project using `MLBusinessComponents` basic components.
 
 ## ❤️ Feedback
