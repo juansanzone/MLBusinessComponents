@@ -116,7 +116,7 @@ ringView.addTapAction { deepLink in
 ```
 
 ## 2️⃣ - MLBusinessDiscountBoxView Component
-This component allow you to show a group of N items in a grid system (3 cols by default). You can add a title and subtitle for the main component. Also, you can provide imageUrl, title and subtitle for each item.
+This component allow you to show a group of N items in a grid system (3 cols by default). You can add a title and subtitle for the main component. Also, you can provide imageUrl, title and subtitle for each item. This component is responsible for knowing and setting your own height based on number of cols and item quantity.
 #### Visual Example:
 ![MLBusinessDiscountBoxView](https://github.com/juansanzone/MLBusinessComponents/blob/refactor/Documentation/images/discountBoxViewComponent.png?raw=true)
 
