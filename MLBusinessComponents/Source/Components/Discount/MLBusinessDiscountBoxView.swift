@@ -26,16 +26,15 @@ import MLUI
     }
 }
 
-extension MLBusinessDiscountBoxView {
+// MARK: Render.
+private extension MLBusinessDiscountBoxView {
     private func render() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor.white
+        self.prepareForAutolayout()
 
         let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.prepareForAutolayout()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
@@ -47,13 +46,13 @@ extension MLBusinessDiscountBoxView {
 
         if let title = viewData.getTitle?(), let subtitle = viewData.getSubtitle?() {
             let titleLabel = UILabel()
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            titleLabel.prepareForAutolayout(.clear)
             self.addSubview(titleLabel)
             titleLabel.text = title
             titleLabel.font = UIFont.ml_semiboldSystemFont(ofSize: UI.FontSize.L_FONT)
             titleLabel.applyBusinessLabelStyle()
             titleLabel.textAlignment = .center
-            titleLabel.numberOfLines = 1 //TODO: Check UX
+            titleLabel.numberOfLines = 1
             NSLayoutConstraint.activate([
                 titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
                 titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UI.Margin.S_MARGIN),
@@ -61,7 +60,7 @@ extension MLBusinessDiscountBoxView {
             ])
 
             let subtitleLabel = UILabel()
-            subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+            subtitleLabel.prepareForAutolayout(.clear)
             self.addSubview(subtitleLabel)
             subtitleLabel.font = UIFont.ml_lightSystemFont(ofSize: UI.FontSize.XS_FONT)
             subtitleLabel.applyBusinessLabelStyle()
@@ -86,7 +85,7 @@ extension MLBusinessDiscountBoxView {
     }
 }
 
-// MARK: Delegates TableView
+// MARK: Delegates TableView.
 extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -114,14 +113,14 @@ extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-// MARK: DataSource functions
-extension MLBusinessDiscountBoxView {
+// MARK: DataSource functions.
+private extension MLBusinessDiscountBoxView {
     func getNumbersOfRows(_ itemsCount: Int) -> Int {
         let roundedValue = Int(itemsCount/itemsPerRow)
         return itemsCount % itemsPerRow == 0 ? roundedValue : roundedValue + 1
     }
 
-    private func getItems(_ index: Int) -> [MLBusinessDiscountSingleItem] {
+    func getItems(_ index: Int) -> [MLBusinessDiscountSingleItem] {
         var offset = itemsPerRow - 1
         let indexArray = index * itemsPerRow
         if indexArray >= 0 && indexArray + offset >= viewData.getItems().count {
@@ -130,20 +129,20 @@ extension MLBusinessDiscountBoxView {
         return Array(viewData.getItems()[indexArray...indexArray+offset])
     }
 
-    private func getTableViewHeight() -> CGFloat {
+    func getTableViewHeight() -> CGFloat {
         let numberOfRows: Int = getNumbersOfRows(viewData.getItems().count)
         return CGFloat(numberOfRows) * MLBusinessDiscountSingleItemView.itemHeight + CGFloat(numberOfRows - 1) * rowSeparationOffset
     }
 }
 
-// MARK: MLBusinessUserInteractionProtocol
+// MARK: MLBusinessUserInteractionProtocol.
 extension MLBusinessDiscountBoxView: MLBusinessUserInteractionProtocol {
     func didTap(item: MLBusinessDiscountSingleItem) {
         tapAction?(item.deepLink, item.trackId)
     }
 }
 
-// MARK: Public Setter
+// MARK: Public Methods.
 extension MLBusinessDiscountBoxView {
     @objc open func addTapAction(_ action: ((_ deepLink: String?, _ trackId: String?) -> Void)?) {
         self.tapAction = action

@@ -8,8 +8,7 @@
 
 import UIKit
 
-class CustomUIImageView: UIImageView {
-
+final class CustomUIImageView: UIImageView {
     private var fadeInEnabled = true
     static let imageCache = NSCache<NSString, UIImage>()
 
