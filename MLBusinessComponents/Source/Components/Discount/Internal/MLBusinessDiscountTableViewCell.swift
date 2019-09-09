@@ -6,7 +6,6 @@
 //  Copyright © 2019 Juan Sanzone. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import MLUI
 
@@ -31,7 +30,7 @@ final class MLBusinessDiscountTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: Setup Cell
+// MARK: Setup Cell.
 extension MLBusinessDiscountTableViewCell {
     func setupCell(discountItems: [MLBusinessDiscountSingleItem], interactionDelegate: MLBusinessUserInteractionProtocol? = nil) {
         delegate = interactionDelegate
@@ -39,11 +38,11 @@ extension MLBusinessDiscountTableViewCell {
     }
 }
 
-// MARK: StackView Privates
+// MARK: StackView Privates.
 extension MLBusinessDiscountTableViewCell {
     private func setupStackView() {
         self.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.prepareForAutolayout()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
@@ -73,7 +72,7 @@ extension MLBusinessDiscountTableViewCell {
     }
 }
 
-// MARK: MLBusinessUserInteractionProtocol
+// MARK: MLBusinessUserInteractionProtocol.
 extension MLBusinessDiscountTableViewCell: MLBusinessUserInteractionProtocol {
     func didTap(item: MLBusinessDiscountSingleItem) {
         delegate?.didTap(item: item)
