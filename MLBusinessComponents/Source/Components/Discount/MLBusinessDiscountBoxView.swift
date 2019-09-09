@@ -10,9 +10,9 @@ import UIKit
 import MLUI
 
 @objc open class MLBusinessDiscountBoxView: UIView {
-
     private let viewData: MLBusinessDiscountBoxData
     private let itemsPerRow: Int = 3
+    private let rowSeparationOffset: CGFloat = UI.Margin.L_MARGIN
     private var tapAction: ((_ deepLink: String?, _ trackId: String?) -> Void)?
 
     init(_ viewData: MLBusinessDiscountBoxData) {
@@ -42,8 +42,7 @@ extension MLBusinessDiscountBoxView {
 
         tableView.register(MLBusinessDiscountTableViewCell.self, forCellReuseIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier)
         self.addSubview(tableView)
-        let rowHeight = CGFloat(getNumbersOfRows(viewData.getItems().count)) * MLBusinessDiscountSingleItemView.itemHeight
-        tableView.heightAnchor.constraint(equalToConstant: rowHeight).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: getTableViewHeight()).isActive = true
         var tableViewTopConstraint: NSLayoutConstraint = tableView.topAnchor.constraint(equalTo: self.topAnchor)
 
         if let title = viewData.getTitle?(), let subtitle = viewData.getSubtitle?() {
@@ -87,14 +86,18 @@ extension MLBusinessDiscountBoxView {
     }
 }
 
-// MARK: Delegates
+// MARK: Delegates TableView
 extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return getNumbersOfRows(viewData.getItems().count)
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemsData: [MLBusinessDiscountSingleItem] = getItems(indexPath)
+        let itemsData: [MLBusinessDiscountSingleItem] = getItems(indexPath.section)
         if let dequeueCell = tableView.dequeueReusableCell(withIdentifier: MLBusinessDiscountTableViewCell.cellIdentifier, for: indexPath) as? MLBusinessDiscountTableViewCell {
             dequeueCell.setupCell(discountItems: itemsData, interactionDelegate: self)
             return dequeueCell
@@ -102,14 +105,13 @@ extension MLBusinessDiscountBoxView: UITableViewDelegate, UITableViewDataSource 
         return UITableViewCell()
     }
 
-    /*
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if getNumbersOfRows(viewData.getItems().count) - 1 == indexPath.row {
-            return MLBusinessDiscountSingleItemView.itemHeight
-        } else {
-            return MLBusinessDiscountSingleItemView.itemHeight + 18
-        }
-    }*/
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 0 : rowSeparationOffset
+    }
+
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return section == 0 ? nil : UIView()
+    }
 }
 
 // MARK: DataSource functions
@@ -119,13 +121,18 @@ extension MLBusinessDiscountBoxView {
         return itemsCount % itemsPerRow == 0 ? roundedValue : roundedValue + 1
     }
 
-    private func getItems(_ indexPath: IndexPath) -> [MLBusinessDiscountSingleItem] {
+    private func getItems(_ index: Int) -> [MLBusinessDiscountSingleItem] {
         var offset = itemsPerRow - 1
-        let indexArray = indexPath.row * itemsPerRow
+        let indexArray = index * itemsPerRow
         if indexArray >= 0 && indexArray + offset >= viewData.getItems().count {
             offset = indexArray + 1 >= viewData.getItems().count ? 0 : 1
         }
         return Array(viewData.getItems()[indexArray...indexArray+offset])
+    }
+
+    private func getTableViewHeight() -> CGFloat {
+        let numberOfRows: Int = getNumbersOfRows(viewData.getItems().count)
+        return CGFloat(numberOfRows) * MLBusinessDiscountSingleItemView.itemHeight + CGFloat(numberOfRows - 1) * rowSeparationOffset
     }
 }
 
@@ -138,7 +145,7 @@ extension MLBusinessDiscountBoxView: MLBusinessUserInteractionProtocol {
 
 // MARK: Public Setter
 extension MLBusinessDiscountBoxView {
-    @objc open func setTapAction(_ action: ((_ deepLink: String?, _ trackId: String?) -> Void)?) {
+    @objc open func addTapAction(_ action: ((_ deepLink: String?, _ trackId: String?) -> Void)?) {
         self.tapAction = action
     }
 }

@@ -39,8 +39,8 @@ extension ExampleViewController {
             ringView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
 
-        ringView.setTapAction { link in
-            print(link)
+        ringView.addTapAction { deepLink in
+            print(deepLink)
         }
         
         return ringView
@@ -55,8 +55,8 @@ extension ExampleViewController {
             discountView.topAnchor.constraint(equalTo: targetView.bottomAnchor, constant: UI.Margin.XM_MARGIN)
         ])
 
-        discountView.setTapAction { (deepLink, trackId) in
-//             print(deepLink, trackId)
+        discountView.addTapAction { (deepLink, trackId) in
+            // print(deepLink, trackId)
         }
     }
 }
